@@ -1,0 +1,1305 @@
+Variable: _STATE
+Label: State FIPS Code
+Question: State FIPS Code
+Categories:
+  Value: 1, Label: Alabama, Freq: 4506, Perc: 1.01
+  Value: 2, Label: Alaska, Freq: 5865, Perc: 1.32
+  Value: 4, Label: Arizona, Freq: 10185, Perc: 2.29
+  Value: 5, Label: Arkansas, Freq: 5309, Perc: 1.19
+  Value: 6, Label: California, Freq: 10952, Perc: 2.46
+  Value: 8, Label: Colorado, Freq: 9365, Perc: 2.1
+  Value: 9, Label: Connecticut, Freq: 9784, Perc: 2.2
+  Value: 10, Label: Delaware, Freq: 3987, Perc: 0.9
+  Value: 11, Label: District of Columbia, Freq: 3237, Perc: 0.73
+  Value: 12, Label: Florida, Freq: 13393, Perc: 3.01
+  Value: 13, Label: Georgia, Freq: 9236, Perc: 2.07
+  Value: 15, Label: Hawaii, Freq: 7747, Perc: 1.74
+  Value: 16, Label: Idaho, Freq: 6280, Perc: 1.41
+  Value: 17, Label: Illinois, Freq: 4056, Perc: 0.91
+  Value: 18, Label: Indiana, Freq: 10466, Perc: 2.35
+  Value: 19, Label: Iowa, Freq: 8949, Perc: 2.01
+  Value: 20, Label: Kansas, Freq: 11247, Perc: 2.53
+  Value: 21, Label: Kentucky, Freq: 4023, Perc: 0.9
+  Value: 22, Label: Louisiana, Freq: 5629, Perc: 1.26
+  Value: 23, Label: Maine, Freq: 10646, Perc: 2.39
+  Value: 24, Label: Maryland, Freq: 16418, Perc: 3.69
+  Value: 25, Label: Massachusetts, Freq: 11029, Perc: 2.48
+  Value: 26, Label: Michigan, Freq: 10058, Perc: 2.26
+  Value: 27, Label: Minnesota, Freq: 16821, Perc: 3.78
+  Value: 28, Label: Mississippi, Freq: 4239, Perc: 0.95
+  Value: 29, Label: Missouri, Freq: 7438, Perc: 1.67
+  Value: 30, Label: Montana, Freq: 7048, Perc: 1.58
+  Value: 31, Label: Nebraska, Freq: 7473, Perc: 1.68
+  Value: 32, Label: Nevada, Freq: 3188, Perc: 0.72
+  Value: 33, Label: New Hampshire, Freq: 6757, Perc: 1.52
+  Value: 34, Label: New Jersey, Freq: 8209, Perc: 1.84
+  Value: 35, Label: New Mexico, Freq: 4758, Perc: 1.07
+  Value: 36, Label: New York, Freq: 17800, Perc: 4.0
+  Value: 37, Label: North Carolina, Freq: 4505, Perc: 1.01
+  Value: 38, Label: North Dakota, Freq: 4153, Perc: 0.93
+  Value: 39, Label: Ohio, Freq: 16487, Perc: 3.7
+  Value: 40, Label: Oklahoma, Freq: 5775, Perc: 1.3
+  Value: 41, Label: Oregon, Freq: 5756, Perc: 1.29
+  Value: 42, Label: Pennsylvania, Freq: 4582, Perc: 1.03
+  Value: 44, Label: Rhode Island, Freq: 5893, Perc: 1.32
+  Value: 45, Label: South Carolina, Freq: 10037, Perc: 2.25
+  Value: 46, Label: South Dakota, Freq: 7424, Perc: 1.67
+  Value: 47, Label: Tennessee, Freq: 5266, Perc: 1.18
+  Value: 48, Label: Texas, Freq: 14245, Perc: 3.2
+  Value: 49, Label: Utah, Freq: 9826, Perc: 2.21
+  Value: 50, Label: Vermont, Freq: 8811, Perc: 1.98
+  Value: 51, Label: Virginia, Freq: 10417, Perc: 2.34
+  Value: 53, Label: Washington, Freq: 26152, Perc: 5.88
+  Value: 54, Label: West Virginia, Freq: 4981, Perc: 1.12
+  Value: 55, Label: Wisconsin, Freq: 11276, Perc: 2.53
+  Value: 56, Label: Wyoming, Freq: 4142, Perc: 0.93
+  Value: 66, Label: Guam, Freq: 2266, Perc: 0.51
+  Value: 72, Label: Puerto Rico, Freq: 5509, Perc: 1.24
+  Value: 78, Label: Virgin Islands, Freq: 1531, Perc: 0.34
+
+
+Variable: LADULT1
+Label: Are you 18 years of age or older?
+Question: Are you 18 years of age or older?
+Categories:
+  Value: 1, Label: YesIf LL.03, COLGHOUS, is 1 go to LL.07, COLGSEX1; else go to LL.08, NUMADULT, Freq: 95885, Perc: 99.83
+  Value: 2, Label: NoIf LL.03, COLGHOUS, is 1 Terminate Phone Call, else go to LL.08, NUMADULT, Freq: 165, Perc: 0.17
+  Value: BLANK, Label: Not asked or Missing
+Notes: QSTVER >= 20, Freq: 349082, Perc: None
+
+
+Variable: COLGSEX1
+Label: Are you male or female?
+Question: Are you male or female?
+Categories:
+  Value: 1, Label: MaleGo to Section 01.01 GENHLTH, Freq: 5, Perc: 23.81
+  Value: 2, Label: FemaleGo to Section 01.01 GENHLTH, Freq: 16, Perc: 76.19
+  Value: BLANK, Label: Not asked or Missing
+Notes: QSTVER >= 20; or if LL.03, COLGHOUS, is not coded 1, Freq: 445111, Perc: None
+
+
+Variable: LANDSEX1
+Label: Are you male or female?
+Question: Are you male or female?
+Categories:
+  Value: 0, Label: , Freq: 1, Perc: 0.0
+  Value: 1, Label: MaleGo to C01.01, GENHLTH, Freq: 13424, Perc: 30.72
+  Value: 2, Label: FemaleGo to C01.01, GENHLTH, Freq: 30247, Perc: 69.22
+  Value: 3, Label: NonbinaryInsert Sex at Birth module or Terminate Phone Call, Freq: 7, Perc: 0.02
+  Value: 7, Label: Dont know/Not SureInsert Sex at Birth module or Terminate Phone Call, Freq: 7, Perc: 0.02
+  Value: 9, Label: RefusedInsert Sex at Birth module or Terminate Phone Call, Freq: 10, Perc: 0.02
+  Value: BLANK, Label: Not asked or Missing
+Notes: QSTVER >= 20; or if LL.08, NUMADULT, is greater than 1, Freq: 401436, Perc: None
+
+
+Variable: CADULT1
+Label: Are you 18 years of age or older?
+Question: Are you 18 years of age or older?
+Categories:
+  Value: 1, Label: YesGo to CP.05, CELLSEX1, Freq: 349080, Perc: 100.0
+  Value: BLANK, Label: Not asked or Missing
+Notes: QSTVER < 20, Freq: 96052, Perc: None
+
+
+Variable: CELLSEX1
+Label: Are you male or female?
+Question: Are you male or female?
+Categories:
+  Value: 1, Label: MaleGo to CP.06, PVTRESD3, Freq: 173639, Perc: 49.74
+  Value: 2, Label: FemaleGo to CP.06, PVTRESD3, Freq: 174948, Perc: 50.12
+  Value: 3, Label: NonbinaryInsert Sex at Birth module or Terminate Phone Call, Freq: 328, Perc: 0.09
+  Value: 7, Label: Dont know/Not SureInsert Sex at Birth module or Terminate Phone Call, Freq: 51, Perc: 0.01
+  Value: 9, Label: RefusedInsert Sex at Birth module or Terminate Phone Call, Freq: 113, Perc: 0.03
+  Value: BLANK, Label: Not asked or Missing
+Notes: QSTVER < 20, Freq: 96053, Perc: None
+
+
+Variable: SEXVAR
+Label: Sex of Respondent
+Question: Sex of Respondent
+Categories:
+  Value: 1, Label: MaleCode=1 if LANDSEX1=1 or CELLSEX1=1 or COLGSEX1=1, Freq: 209239, Perc: 47.01
+  Value: 2, Label: FemaleCode=2 if LANDSEX1=2 or CELLSEX1=2 or COLGSEX1=2, Freq: 235893, Perc: 52.99
+
+
+Variable: GENHLTH
+Label: General Health
+Question: Would you say that in general your health is:
+Categories:
+  Value: 1, Label: Excellent, Freq: 71878, Perc: 16.15
+  Value: 2, Label: Very good, Freq: 148444, Perc: 33.35
+  Value: 3, Label: Good, Freq: 143598, Perc: 32.26
+  Value: 4, Label: Fair, Freq: 60273, Perc: 13.54
+  Value: 5, Label: Poor, Freq: 19741, Perc: 4.43
+  Value: 7, Label: Dont know/Not Sure, Freq: 810, Perc: 0.18
+  Value: 9, Label: Refused, Freq: 385, Perc: 0.09
+  Value: BLANK, Label: Not asked or Missing, Freq: 3, Perc: None
+
+
+Variable: PHYSHLTH
+Label: Number of Days Physical Health Not Good
+Question: Now thinking about your physical health, which includes physical illness and injury, for how many days during the past 30 days was your physical health not good?
+Categories:
+  Value: 1 - 30, Label: Number of days, Freq: 166386, Perc: 37.38
+  Value: 88, Label: None, Freq: 267819, Perc: 60.17
+  Value: 77, Label: Dont know/Not sure, Freq: 8875, Perc: 1.99
+  Value: 99, Label: Refused, Freq: 2047, Perc: 0.46
+  Value: BLANK, Label: Not asked or Missing, Freq: 5, Perc: None
+
+
+Variable: MENTHLTH
+Label: Number of Days Mental Health Not Good
+Question: Now thinking about your mental health, which includes stress, depression, and problems with emotions, for how many days during the past 30 days was your mental health not good?
+Categories:
+  Value: 1 - 30, Label: Number of days
+Notes: _ _ Number of days, Freq: 170836, Perc: 38.38
+  Value: 88, Label: None, Freq: 265229, Perc: 59.58
+  Value: 77, Label: Dont know/Not sure, Freq: 6589, Perc: 1.48
+  Value: 99, Label: Refused, Freq: 2475, Perc: 0.56
+  Value: BLANK, Label: Not asked or Missing, Freq: 3, Perc: None
+
+
+Variable: POORHLTH
+Label: Poor Physical or Mental Health
+Question: During the past 30 days, for about how many days did poor physical or mental health keep you from doing your usual activities, such as self-care, work, or recreation?
+Categories:
+  Value: 1 - 30, Label: Number of days
+Notes: _ _ Number of days, Freq: 119802, Perc: 46.84
+  Value: 88, Label: None, Freq: 129472, Perc: 50.63
+  Value: 77, Label: Dont know/Not sure, Freq: 5065, Perc: 1.98
+  Value: 99, Label: Refused, Freq: 1407, Perc: 0.55
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 02.01, PHYSHLTH, is 88 and Section 2.02, MENTHLTH, is 88, Freq: 189386, Perc: None
+
+
+Variable: PRIMINSR
+Label: What is Primary Source of Health Insurance?
+Question: What is the current primary source of your health insurance?
+Categories:
+  Value: 1, Label: A plan purchased through an employer or union (including plans purchased through another persons employer), Freq: 161388, Perc: 36.26
+  Value: 2, Label: A private nongovernmental plan that you or another family member buys on your own, Freq: 36931, Perc: 8.3
+  Value: 3, Label: Medicare, Freq: 135848, Perc: 30.52
+  Value: 4, Label: Medigap, Freq: 536, Perc: 0.12
+  Value: 5, Label: Medicaid, Freq: 29072, Perc: 6.53
+  Value: 6, Label: Childrens Health Insurance Program (CHIP), Freq: 188, Perc: 0.04
+  Value: 7, Label: Military related health care: TRICARE (CHAMPUS) / VA health care / CHAMP- VA, Freq: 15373, Perc: 3.45
+  Value: 8, Label: Indian Health Service, Freq: 1385, Perc: 0.31
+  Value: 9, Label: State sponsored health plan, Freq: 12878, Perc: 2.89
+  Value: 10, Label: Other government program, Freq: 10630, Perc: 2.39
+  Value: 88, Label: No coverage of any type, Freq: 23018, Perc: 5.17
+  Value: 77, Label: Dont know/Not Sure, Freq: 9890, Perc: 2.22
+  Value: 99, Label: Refused, Freq: 7991, Perc: 1.8
+  Value: BLANK, Label: Not asked or Missing, Freq: 4, Perc: None
+
+
+Variable: PERSDOC3
+Label: Have Personal Health Care Provider?
+Question: Do you have one person or a group of doctors that you think of as your personal health care provider?
+Categories:
+  Value: 1, Label: Yes, only one, Freq: 246967, Perc: 55.48
+  Value: 2, Label: More than one, Freq: 136685, Perc: 30.71
+  Value: 3, Label: No, Freq: 57105, Perc: 12.83
+  Value: 7, Label: Dont know/Not Sure, Freq: 3270, Perc: 0.73
+  Value: 9, Label: Refused, Freq: 1103, Perc: 0.25
+  Value: BLANK, Label: Not asked or Missing, Freq: 2, Perc: None
+
+
+Variable: MEDCOST1
+Label: Could Not Afford To See Doctor
+Question: Was there a time in the past 12 months when you needed to see a doctor but could not because you could not afford it?
+Categories:
+  Value: 1, Label: Yes, Freq: 37227, Perc: 8.36
+  Value: 2, Label: No, Freq: 406296, Perc: 91.28
+  Value: 7, Label: Dont know/Not sure, Freq: 1157, Perc: 0.26
+  Value: 9, Label: Refused, Freq: 448, Perc: 0.1
+  Value: BLANK, Label: Not asked or Missing, Freq: 4, Perc: None
+
+
+Variable: CHECKUP1
+Label: Length of time since last routine checkup
+Question: About how long has it been since you last visited a doctor for a routine checkup?
+Categories:
+  Value: 1, Label: Within past year (anytime less than 12 months ago), Freq: 350944, Perc: 78.84
+  Value: 2, Label: Within past 2 years (1 year but less than 2 years ago), Freq: 41919, Perc: 9.42
+  Value: 3, Label: Within past 5 years (2 years but less than 5 years ago), Freq: 24882, Perc: 5.59
+  Value: 4, Label: 5 or more years ago, Freq: 19079, Perc: 4.29
+  Value: 7, Label: Dont know/Not sure, Freq: 5063, Perc: 1.14
+  Value: 8, Label: Never, Freq: 2509, Perc: 0.56
+  Value: 9, Label: Refused, Freq: 733, Perc: 0.16
+  Value: BLANK, Label: Not asked or Missing, Freq: 3, Perc: None
+
+
+Variable: EXERANY2
+Label: Exercise in Past 30 Days
+Question: During the past month, other than your regular job, did you participate in any physical activities or exercises such as running, calisthenics, golf, gardening, or walking for exercise?
+Categories:
+  Value: 1, Label: Yes, Freq: 337559, Perc: 75.83
+  Value: 2, Label: No, Freq: 106480, Perc: 23.92
+  Value: 7, Label: Dont know/Not Sure, Freq: 724, Perc: 0.16
+  Value: 9, Label: Refused, Freq: 367, Perc: 0.08
+  Value: BLANK, Label: Not asked or Missing, Freq: 2, Perc: None
+
+
+Variable: SLEPTIM1
+Label: How Much Time Do You Sleep
+Question: On average, how many hours of sleep do you get in a 24-hour period?
+Categories:
+  Value: 1 - 24, Label: Number of hours [1-24], Freq: 439679, Perc: 98.78
+  Value: 77, Label: Dont know/Not Sure, Freq: 4792, Perc: 1.08
+  Value: 99, Label: Refused, Freq: 658, Perc: 0.15
+  Value: BLANK, Label: Missing, Freq: 3, Perc: None
+
+
+Variable: CVDSTRK3
+Label: Ever Diagnosed with a Stroke
+Question: (Ever told) (you had) a stroke.
+Categories:
+  Value: 1, Label: Yes, Freq: 19239, Perc: 4.32
+  Value: 2, Label: No, Freq: 424336, Perc: 95.33
+  Value: 7, Label: Dont know/Not sure, Freq: 1274, Perc: 0.29
+  Value: 9, Label: Refused, Freq: 281, Perc: 0.06
+  Value: BLANK, Label: Not asked or Missing, Freq: 2, Perc: None
+
+
+Variable: ASTHMA3
+Label: Ever Told Had Asthma
+Question: (Ever told) (you had) asthma?
+Categories:
+  Value: 1, Label: Yes, Freq: 66694, Perc: 14.98
+  Value: 2, Label: NoGo to Section 07.06 CHCSCNC1, Freq: 376665, Perc: 84.62
+  Value: 7, Label: Dont know/Not SureGo to Section 07.06 CHCSCNC1, Freq: 1494, Perc: 0.34
+  Value: 9, Label: RefusedGo to Section 07.06 CHCSCNC1, Freq: 277, Perc: 0.06
+  Value: BLANK, Label: Not asked or Missing, Freq: 2, Perc: None
+
+
+Variable: ASTHNOW
+Label: Still Have Asthma
+Question: Do you still have asthma?
+Categories:
+  Value: 1, Label: Yes, Freq: 45659, Perc: 68.46
+  Value: 2, Label: No, Freq: 18948, Perc: 28.41
+  Value: 7, Label: Dont know/Not Sure, Freq: 2054, Perc: 3.08
+  Value: 9, Label: Refused, Freq: 33, Perc: 0.05
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 07.04, ASTHMA3 is coded 2, 7, 9, or Missing, Freq: 378438, Perc: None
+
+
+Variable: CHCSCNC1
+Label: (Ever told) (you had) skin cancer that is not melanoma?
+Question: (Ever told) (you had) skin cancer that is not melanoma?
+Categories:
+  Value: 1, Label: Yes, Freq: 35485, Perc: 7.97
+  Value: 2, Label: No, Freq: 406504, Perc: 91.32
+  Value: 7, Label: Dont know / Not sure, Freq: 2822, Perc: 0.63
+  Value: 9, Label: Refused, Freq: 319, Perc: 0.07
+  Value: BLANK, Label: Not asked or Missing, Freq: 2, Perc: None
+
+
+Variable: CHCOCNC1
+Label: (Ever told) (you had) melanoma or any other types of cancer?
+Question: (Ever told) (you had) melanoma or any other types of cancer?
+Categories:
+  Value: 1, Label: Yes, Freq: 50269, Perc: 11.29
+  Value: 2, Label: No, Freq: 392442, Perc: 88.16
+  Value: 7, Label: Dont know / Not sure, Freq: 2016, Perc: 0.45
+  Value: 9, Label: Refused, Freq: 402, Perc: 0.09
+  Value: BLANK, Label: Not asked or Missing, Freq: 3, Perc: None
+
+
+Variable: CHCCOPD3
+Label: Ever told you had C.O.P.D. emphysema or chronic bronchitis?
+Question: (Ever told) (you had) C.O.P.D. (chronic obstructive pulmonary disease), emphysema or chronic bronchitis?
+Categories:
+  Value: 1, Label: Yes, Freq: 35656, Perc: 8.01
+  Value: 2, Label: No, Freq: 407257, Perc: 91.49
+  Value: 7, Label: Dont know / Not sure, Freq: 1885, Perc: 0.42
+  Value: 9, Label: Refused, Freq: 332, Perc: 0.07
+  Value: BLANK, Label: Not asked or Missing, Freq: 2, Perc: None
+
+
+Variable: ADDEPEV3
+Label: (Ever told) you had a depressive disorder
+Question: (Ever told) (you had) a depressive disorder (including depression, major depression, dysthymia, or minor depression)?
+Categories:
+  Value: 1, Label: Yes, Freq: 91410, Perc: 20.54
+  Value: 2, Label: No, Freq: 350910, Perc: 78.83
+  Value: 7, Label: Dont know/Not sure, Freq: 2140, Perc: 0.48
+  Value: 9, Label: Refused, Freq: 665, Perc: 0.15
+  Value: BLANK, Label: Not asked or Missing, Freq: 7, Perc: None
+
+
+Variable: CHCKDNY2
+Label: Ever told you have kidney disease?
+Question: Not including kidney stones, bladder infection or incontinence, were you ever told you had kidney disease?
+Categories:
+  Value: 1, Label: Yes, Freq: 20315, Perc: 4.56
+  Value: 2, Label: No, Freq: 422891, Perc: 95.0
+  Value: 7, Label: Dont know / Not sure, Freq: 1581, Perc: 0.36
+  Value: 9, Label: Refused, Freq: 343, Perc: 0.08
+  Value: BLANK, Label: Not asked or Missing, Freq: 2, Perc: None
+
+
+Variable: DIABETE4
+Label: (Ever told) you had diabetes
+Question: (Ever told) (you had) diabetes? (If Yes and respondent is female, ask Was this only when you were pregnant?. If Respondent says pre-diabetes or borderline diabetes, use response code 4.)
+Categories:
+  Value: 1, Label: Yes, Freq: 61158, Perc: 13.74
+  Value: 2, Label: Yes, but female told only during pregnancyGo to Section 08.01 AGE, Freq: 3836, Perc: 0.86
+  Value: 3, Label: NoGo to Section 08.01 AGE, Freq: 368722, Perc: 82.83
+  Value: 4, Label: No, pre-diabetes or borderline diabetesGo to Section 08.01 AGE, Freq: 10329, Perc: 2.32
+  Value: 7, Label: Dont know/Not SureGo to Section 08.01 AGE, Freq: 763, Perc: 0.17
+  Value: 9, Label: RefusedGo to Section 08.01 AGE, Freq: 321, Perc: 0.07
+  Value: BLANK, Label: Not asked or Missing, Freq: 3, Perc: None
+
+
+Variable: VETERAN3
+Label: Are You A Veteran
+Question: Have you ever served on active duty in the United States Armed Forces, either in the regular military or in a National Guard or military reserve unit?
+Categories:
+  Value: 1, Label: Yes, Freq: 53211, Perc: 12.07
+  Value: 2, Label: No, Freq: 386272, Perc: 87.6
+  Value: 7, Label: Dont know/Not Sure, Freq: 208, Perc: 0.05
+  Value: 9, Label: Refused, Freq: 1268, Perc: 0.29
+  Value: BLANK, Label: Not asked or Missing, Freq: 4173, Perc: None
+
+
+Variable: WEIGHT2
+Label: Reported Weight in Pounds
+Question: About how much do you weigh without shoes? (If respondent answers in metrics, put a 9 in the first column)[Round fractions up.]
+Categories:
+  Value: 50 - 0776, Label: Weight (pounds)
+Notes: 0 _ _ _ = weight in pounds, Freq: 400862, Perc: 93.39
+  Value: 7777, Label: Dont know/Not sure, Freq: 8003, Perc: 1.86
+  Value: 9023 - 9352, Label: Weight (kilograms)
+Notes: The initial 9 indicates this was a metric value., Freq: 2209, Perc: 0.51
+  Value: 9999, Label: Refused, Freq: 18157, Perc: 4.23
+  Value: BLANK, Label: Not asked or Missing, Freq: 15901, Perc: None
+
+
+Variable: HEIGHT3
+Label: Reported Height in Feet and Inches
+Question: About how tall are you without shoes? (If respondent answers in metrics, put a 9 in the first column)[Round fractions down.]
+Categories:
+  Value: 200 - 711, Label: Height (ft/inches)
+Notes: 0 _ / _ _ = feet / inches, Freq: 412664, Perc: 96.4
+  Value: 7777, Label: Dont know/Not sure, Freq: 4200, Perc: 0.98
+  Value: 9061 - 9998, Label: Height (meters/centimeters)
+Notes: The initial 9 indicates this was a metric value., Freq: 3830, Perc: 0.89
+  Value: 9999, Label: Refused, Freq: 7383, Perc: 1.72
+  Value: BLANK, Label: Not asked or Missing, Freq: 17055, Perc: None
+
+
+Variable: DIFFWALK
+Label: Difficulty Walking or Climbing Stairs
+Question: Do you have serious difficulty walking or climbing stairs?
+Categories:
+  Value: 1, Label: Yes, Freq: 68081, Perc: 16.1
+  Value: 2, Label: No, Freq: 353039, Perc: 83.47
+  Value: 7, Label: Dont know/Not Sure, Freq: 1221, Perc: 0.29
+  Value: 9, Label: Refused, Freq: 636, Perc: 0.15
+  Value: BLANK, Label: Not asked or Missing, Freq: 22155, Perc: None
+
+
+Variable: DIFFDRES
+Label: Difficulty Dressing or Bathing
+Question: Do you have difficulty dressing or bathing?
+Categories:
+  Value: 1, Label: Yes, Freq: 16813, Perc: 3.98
+  Value: 2, Label: No, Freq: 404404, Perc: 95.77
+  Value: 7, Label: Dont know/Not Sure, Freq: 488, Perc: 0.12
+  Value: 9, Label: Refused, Freq: 548, Perc: 0.13
+  Value: BLANK, Label: Not asked or Missing, Freq: 22879, Perc: None
+
+
+Variable: DIFFALON
+Label: Difficulty Doing Errands Alone
+Question: Because of a physical, mental, or emotional condition, do you have difficulty doing errands alone such as visiting a doctors office or shopping?
+Categories:
+  Value: 1, Label: Yes, Freq: 32447, Perc: 7.7
+  Value: 2, Label: No, Freq: 387029, Perc: 91.89
+  Value: 7, Label: Dont know/Not Sure, Freq: 1023, Perc: 0.24
+  Value: 9, Label: Refused, Freq: 691, Perc: 0.16
+  Value: BLANK, Label: Not asked or Missing, Freq: 23942, Perc: None
+
+
+Variable: CERVSCRN
+Label: Have you ever had a cervical cancer screening test?
+Question: Have you ever had a cervical cancer screening test?
+Categories:
+  Value: 1, Label: Yes, Freq: 135746, Perc: 61.48
+  Value: 2, Label: NoGo to Section 10.07 HADHYST2, Freq: 68997, Perc: 31.25
+  Value: 7, Label: Dont know/Not SureGo to Section 10.07 HADHYST2, Freq: 15296, Perc: 6.93
+  Value: 9, Label: RefusedGo to Section 10.07 HADHYST2, Freq: 775, Perc: 0.35
+  Value: BLANK, Label: Not asked or Missing
+Notes: respondent sex, SEXVAR, is coded 1; or Module 25.01, BIRTHSEX,, is coded 1;, Freq: 224318, Perc: None
+
+
+Variable: CRVCLPAP
+Label: Have a PAP test and recent cervical cancer screening
+Question: At your most recent cervical cancer screening, did you have a Pap test?
+Categories:
+  Value: 1, Label: Yes, Freq: 123657, Perc: 91.34
+  Value: 2, Label: No, Freq: 8131, Perc: 6.01
+  Value: 7, Label: Dont know/Not sure, Freq: 3332, Perc: 2.46
+  Value: 9, Label: Refused, Freq: 267, Perc: 0.2
+  Value: BLANK, Label: Not asked or Missing
+Notes: respondent sex, SEXVAR, is coded 1; or Module 25.01, BIRTHSEX,, is coded 1; or Module 10.03, CERVSCRN, is coded 2, 7, 9 or missing;, Freq: 309745, Perc: None
+
+
+Variable: CIMEMLOS
+Label: Have you experienced confusion or memory loss that is happening more often or is getting worse?
+Question: During the past 12 months, have you experienced confusion or memory loss that is happening more often or is getting worse?
+Categories:
+  Value: 1, Label: Yes, Freq: 7003, Perc: 10.83
+  Value: 2, Label: NoGo to next module, Freq: 56945, Perc: 88.05
+  Value: 7, Label: Dont know/Not sure, Freq: 474, Perc: 0.73
+  Value: 9, Label: RefusedGo to next module, Freq: 253, Perc: 0.39
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 08.01, AGE, is less than 45;, Freq: 380457, Perc: None
+
+
+Variable: CAREGIV1
+Label: Provided regular care for family or friend
+Question: During the past 30 days, did you provide regular care or assistance to a friend or family member who has a health problem or disability?
+Categories:
+  Value: 1, Label: Yes, Freq: 19662, Perc: 19.96
+  Value: 2, Label: NoGo to Module 14.09 CRGVEXPT, Freq: 78174, Perc: 79.36
+  Value: 7, Label: Dont know/Not SureGo to Module 14.09 CRGVEXPT, Freq: 262, Perc: 0.27
+  Value: 8, Label: Caregiving recipient died in past 30 daysGo to next module, Freq: 177, Perc: 0.18
+  Value: 9, Label: RefusedGo to Module 14.09 CRGVEXPT, Freq: 235, Perc: 0.24
+  Value: BLANK, Label: Not asked or Missing, Freq: 346622, Perc: None
+
+
+Variable: SDHISOLT
+Label: How often do you feel socially isolated from others?
+Question: How often do you feel socially isolated from others? Is it
+Categories:
+  Value: 1, Label: Always, Freq: 8098, Perc: 3.19
+  Value: 2, Label: Usually, Freq: 13178, Perc: 5.19
+  Value: 3, Label: Sometimes, Freq: 53072, Perc: 20.91
+  Value: 4, Label: Rarely, Freq: 70617, Perc: 27.82
+  Value: 5, Label: Never, Freq: 106160, Perc: 41.83
+  Value: 7, Label: Dont know/Not Sure, Freq: 1696, Perc: 0.67
+  Value: 9, Label: Refused, Freq: 969, Perc: 0.38
+  Value: BLANK, Label: Not asked or Missing, Freq: 191342, Perc: None
+
+
+Variable: SDHEMPLY
+Label: Have you lost employment or had hours reduced?
+Question: In the past 12 months have you lost employment or had hours reduced?
+Categories:
+  Value: 1, Label: Yes, Freq: 23170, Perc: 9.14
+  Value: 2, Label: No, Freq: 227969, Perc: 89.92
+  Value: 7, Label: Dont know/Not Sure, Freq: 1144, Perc: 0.45
+  Value: 9, Label: Refused, Freq: 1232, Perc: 0.49
+  Value: BLANK, Label: Not asked or Missing, Freq: 191617, Perc: None
+
+
+Variable: MARIJAN1
+Label: During the past 30 days, on how many days did you use marijuana or hashish?
+Question: During the past 30 days, on how many days did you use marijuana or cannabis?
+Categories:
+  Value: 1 - 30, Label: Number of Days, Freq: 11525, Perc: 12.14
+  Value: 88, Label: NoneGo to next module, Freq: 82210, Perc: 86.61
+  Value: 77, Label: Dont know/Not SureGo to next module, Freq: 496, Perc: 0.52
+  Value: 99, Label: RefusedGo to next module, Freq: 688, Perc: 0.72
+  Value: BLANK, Label: Not asked or Missing, Freq: 350213, Perc: None
+
+
+Variable: LASTSMK2
+Label: Interval Since Last Smoked
+Question: How long has it been since you last smoked a cigarette, even one or two puffs?
+Categories:
+  Value: 1, Label: Within the past month (less than 1 month ago)Go to next module, Freq: 1242, Perc: 2.62
+  Value: 2, Label: Within the past 3 months (1 month but less than 3 months ago)Go to next module, Freq: 879, Perc: 1.85
+  Value: 3, Label: Within the past 6 months (3 months but less than 6 months ago)Go to next module, Freq: 807, Perc: 1.7
+  Value: 4, Label: Within the past year (6 months but less than 1 year ago)Go to next module, Freq: 1382, Perc: 2.92
+  Value: 5, Label: Within the past 5 years (1 year but less than 5 years ago)Go to next module, Freq: 5760, Perc: 12.15
+  Value: 6, Label: Within the past 10 years (5 years but less than 10 years ago)Go to next module, Freq: 4494, Perc: 9.48
+  Value: 7, Label: 10 years or moreGo to next module, Freq: 31978, Perc: 67.45
+  Value: 8, Label: Never smoked regularlyGo to next module, Freq: 351, Perc: 0.74
+  Value: 77, Label: Dont know/Not sureGo to next module, Freq: 441, Perc: 0.93
+  Value: 99, Label: RefusedGo to next module, Freq: 75, Perc: 0.16
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 12.01, SMOKE100, is coded 2, 7, 9, or Missing; or Section 12.02, SMOKDAY2, is coded 1, 2, 7, 9, or Missing;, Freq: 397723, Perc: None
+
+
+Variable: ASBIDRNK
+Label: Asked in person or by form how much you drink?
+Question: Did the health care provider ask you in person or on a form how much you drink?
+Categories:
+  Value: 1, Label: Yes, Freq: 39018, Perc: 64.13
+  Value: 2, Label: No, Freq: 16743, Perc: 27.52
+  Value: 7, Label: Dont know/Not Sure, Freq: 4865, Perc: 8.0
+  Value: 9, Label: Refused, Freq: 214, Perc: 0.35
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 03.04, CHECKUP1 is coded 3, 4, 7, 8, 9, or Missing, Freq: 384292, Perc: None
+
+
+Variable: CRVCLHPV
+Label: Have an H.P.V. test and recent cervical cancer screening
+Question: At your most recent cervical cancer screening, did you have an H.P.V. test?
+Categories:
+  Value: 1, Label: Yes, Freq: 45940, Perc: 33.99
+  Value: 2, Label: No, Freq: 48659, Perc: 36.0
+  Value: 7, Label: Dont know/Not sure, Freq: 40188, Perc: 29.73
+  Value: 9, Label: Refused, Freq: 385, Perc: 0.28
+  Value: BLANK, Label: Not asked or Missing
+Notes: respondent sex, SEXVAR, is coded 1; or Module 25.01, BIRTHSEX,, is coded 1; or Module 10.03, CERVSCRN, is coded 2, 7, 9 or missing;, Freq: 309960, Perc: None
+
+
+Variable: HADHYST2
+Label: Had Hysterectomy
+Question: Have you had a hysterectomy? (A hysterectomy is an operation to remove the uterus (womb).)
+Categories:
+  Value: 1, Label: Yes, Freq: 57360, Perc: 26.35
+  Value: 2, Label: No, Freq: 158895, Perc: 73.0
+  Value: 7, Label: Dont know/Not sure, Freq: 540, Perc: 0.25
+  Value: 9, Label: Refused, Freq: 884, Perc: 0.41
+  Value: BLANK, Label: Not asked or Missing
+Notes: respondent sex, SEXVAR, is coded 1; or Module 25.01, BIRTHSEX,, is coded 1; or Section 09.17, PREGNANT, is coded 1, Freq: 227453, Perc: None
+
+
+Variable: COLNSIGM
+Label: Ever had a colonoscopy, sigmoidoscopy, or both
+Question: Have you had a colonoscopy, a sigmoidoscopy, or both?
+Categories:
+  Value: 1, Label: Colonoscopy, Freq: 177396, Perc: 83.35
+  Value: 2, Label: SigmoidoscopyGo to Section 11.04 SIGMTES1, Freq: 1309, Perc: 0.62
+  Value: 3, Label: Both, Freq: 30252, Perc: 14.21
+  Value: 7, Label: Dont know/Not SureGo to Section 11.05 LASTSIG4, Freq: 3455, Perc: 1.62
+  Value: 9, Label: RefusedGo to Section 11.06 COLNCNCR, Freq: 411, Perc: 0.19
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 08.01, AGE, is less than 45; or Section 11.01, HADSIGM4, is coded 2, 7, 9 or missing, Freq: 232309, Perc: None
+
+
+Variable: COLNCNCR
+Label: Ever had any other kind of test for colorectal cancer
+Question: Have you ever had any other kind of test for colorectal cancer, such as virtual colonoscopy, CT colonography, blood stool test, FIT DNA, or Cologuard test?
+Categories:
+  Value: 1, Label: Yes, Freq: 61981, Perc: 21.29
+  Value: 2, Label: NoGo to Next Section, Freq: 219810, Perc: 75.51
+  Value: 7, Label: Dont know/Not SureGo to Next Section, Freq: 7848, Perc: 2.7
+  Value: 9, Label: RefusedGo to Next Section, Freq: 1447, Perc: 0.5
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 08.01, AGE, is less than 45, Freq: 154046, Perc: None
+
+
+Variable: VIRCOLO1
+Label: Ever had a virtual colonoscopy
+Question: A virtual colonoscopy uses a series of X-rays to take pictures of inside the colon. Have you ever had a virtual colonoscopy?
+Categories:
+  Value: 1, Label: Yes, Freq: 9013, Perc: 14.57
+  Value: 2, Label: NoGo to Section 11.09 SMALSTOL, Freq: 49974, Perc: 80.78
+  Value: 7, Label: Dont know/Not SureGo to Section 11.09 SMALSTOL, Freq: 2834, Perc: 4.58
+  Value: 9, Label: RefusedGo to Section 11.09 SMALSTOL, Freq: 46, Perc: 0.07
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 08.01, AGE, is less than 45; or Section 11.06, COLNCNCR, is coded 2, 7, 9 or missing;, Freq: 383265, Perc: None
+
+
+Variable: SMALSTOL
+Label: Ever had stool test?
+Question: One stool test uses a special kit to obtain a small amount of stool at home and returns the kit to the doctor or the lab. Have you ever had this test?
+Categories:
+  Value: 1, Label: Yes, Freq: 49440, Perc: 80.16
+  Value: 2, Label: NoGo to Section 11.11 STOOLDN1, Freq: 11518, Perc: 18.68
+  Value: 7, Label: Dont know/Not SureGo to Section 11.11 STOOLDN1, Freq: 661, Perc: 1.07
+  Value: 9, Label: RefusedGo to Section 11.11 STOOLDN1, Freq: 57, Perc: 0.09
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 08.01, AGE, is less than 45; or Section 11.06, COLNCNCR, is coded 2, 7, 9 or missing;, Freq: 383456, Perc: None
+
+
+Variable: STOOLDN2
+Label: Ever had stool DNA test?
+Question: Another stool test uses a special kit to obtain an entire bowel movement at home and returns the kit to a lab. Have you ever had this test?
+Categories:
+  Value: 1, Label: Yes, Freq: 11432, Perc: 18.62
+  Value: 2, Label: NoGo to Next Section, Freq: 48227, Perc: 78.54
+  Value: 7, Label: Dont know/Not SureGo to Next Section, Freq: 1634, Perc: 2.66
+  Value: 9, Label: RefusedGo to Next Section, Freq: 109, Perc: 0.18
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 08.01, AGE, is less than 45; or Section 11.06, COLNCNCR, is coded 2, 7, 9 or missing;, Freq: 383730, Perc: None
+
+
+Variable: SMOKE100
+Label: Smoked at Least 100 Cigarettes
+Question: Have you smoked at least 100 cigarettes in your entire life? [Note: 5 packs = 100 cigarettes]
+Categories:
+  Value: 1, Label: Yes, Freq: 164217, Perc: 39.73
+  Value: 2, Label: NoGo to Section 12.03 USENOW3, Freq: 245955, Perc: 59.5
+  Value: 7, Label: Dont know/Not SureGo to Section 12.03 USENOW3, Freq: 2297, Perc: 0.56
+  Value: 9, Label: RefusedGo to Section 12.03 USENOW3, Freq: 886, Perc: 0.21
+  Value: BLANK, Label: Not asked or Missing, Freq: 31777, Perc: None
+
+
+Variable: SMOKDAY2
+Label: Frequency of Days Now Smoking
+Question: Do you now smoke cigarettes every day, some days, or not at all?
+Categories:
+  Value: 1, Label: Every day, Freq: 36003, Perc: 21.95
+  Value: 2, Label: Some days, Freq: 13938, Perc: 8.5
+  Value: 3, Label: Not at all, Freq: 113774, Perc: 69.35
+  Value: 7, Label: Dont Know/Not Sure, Freq: 165, Perc: 0.1
+  Value: 9, Label: Refused, Freq: 173, Perc: 0.11
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 12.01, SMOKE100, is coded 2, 7, 9, or Missing, Freq: 281079, Perc: None
+
+
+Variable: USENOW3
+Label: Use of Smokeless Tobacco Products
+Question: Do you currently use chewing tobacco, snuff, or snus every day, some days, or not at all? (Snus (Swedish for snuff) is a moist smokeless tobacco, usually sold in small pouches that are placed under the lip against the gum.)
+Categories:
+  Value: 1, Label: Every day, Freq: 7333, Perc: 1.78
+  Value: 2, Label: Some days, Freq: 5358, Perc: 1.3
+  Value: 3, Label: Not at all, Freq: 398616, Perc: 96.63
+  Value: 7, Label: Dont know/Not Sure, Freq: 353, Perc: 0.09
+  Value: 9, Label: Refused, Freq: 872, Perc: 0.21
+  Value: BLANK, Label: Not asked or Missing, Freq: 32600, Perc: None
+
+
+Variable: ECIGNOW2
+Label: Do you now use e-cigarettes, or vaping products every day, some days, or not at all?
+Question: Would you say you have never used e-cigarettes or other electronic vaping products in your entire life or now use them every day, use them some days, or used them in the past but do not currently use them at all?
+Categories:
+  Value: 1, Label: Never used e-cigarettes in your entire life, Freq: 311988, Perc: 75.81
+  Value: 2, Label: Use them every day, Freq: 10382, Perc: 2.52
+  Value: 3, Label: Use them some days, Freq: 11734, Perc: 2.85
+  Value: 4, Label: Not at all (right now), Freq: 75368, Perc: 18.31
+  Value: 7, Label: Dont know / Not sure, Freq: 905, Perc: 0.22
+  Value: 9, Label: Refused, Freq: 1176, Perc: 0.29
+  Value: BLANK, Label: Not asked or Missing, Freq: 33579, Perc: None
+
+
+Variable: LCSFIRST
+Label: How old when you first started smoking?
+Question: How old were you when you first started to smoke cigarettes regularly
+Categories:
+  Value: 1 - 100, Label: Age in Years, Freq: 153326, Perc: 94.81
+  Value: 777, Label: Dont know/Not Sure, Freq: 2877, Perc: 1.78
+  Value: 888, Label: Never smoked cigarettes regularlyGo to Section 13.04 LCSCTSC1, Freq: 4858, Perc: 3.0
+  Value: 999, Label: Refused, Freq: 654, Perc: 0.4
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 12.01, SMOKE100, is coded 2, 7, 9, or Missing; or Section 12.02, SMOKDAY2, is coded 7, 9, or Missing;, Freq: 283417, Perc: None
+
+
+Variable: LCSLAST
+Label: How old when you last smoked?
+Question: How old were you when you last smoked cigarettes regularly?
+Categories:
+  Value: 1 - 100, Label: Age in Years, Freq: 115158, Perc: 95.47
+  Value: 777, Label: Dont know/Not Sure, Freq: 4619, Perc: 3.83
+  Value: 999, Label: Refused, Freq: 842, Perc: 0.7
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 12.01, SMOKE100, is coded 2, 7, 9, or Missing; or Section 12.02, SMOKDAY2, is coded 1; or Module 13.01, LCSFIRST, is coded 888 or missing, Freq: 324513, Perc: None
+
+
+Variable: LCSNUMCG
+Label: On average, how many cigarettes do you smoke each day?
+Question: On average, when you {smoke/smoked} regularly, about how many cigarettes {do/did} you usually smoke each day?
+Categories:
+  Value: 0, Label: , Freq: 1, Perc: 0.0
+  Value: 1 - 300, Label: Number of cigarettes, Freq: 150246, Perc: 96.23
+  Value: 777, Label: Dont know/Not Sure, Freq: 5167, Perc: 3.31
+  Value: 999, Label: Refused, Freq: 726, Perc: 0.46
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 12.01, SMOKE100, is coded 2, 7, 9, or Missing; or Section 12.02, SMOKDAY2, is coded 7, 9, or Missing; or Module 09.01, LCSFIRST, is coded 888 or missing, Freq: 288992, Perc: None
+
+
+Variable: LCSCTSC1
+Label: Did you have a CT or CAT scan?
+Question: Have you ever had a CT or CAT scan of your chest area?
+Categories:
+  Value: 1, Label: Yes, Freq: 165865, Perc: 40.76
+  Value: 2, Label: NoGo to Section 14.01 ALCDAY4, Freq: 223221, Perc: 54.86
+  Value: 7, Label: Dont know/Not sureGo to Section 14.01 ALCDAY4, Freq: 16876, Perc: 4.15
+  Value: 9, Label: RefusedGo to Section 14.01 ALCDAY4, Freq: 960, Perc: 0.24
+  Value: BLANK, Label: Not asked or Missing, Freq: 38210, Perc: None
+
+
+Variable: LCSSCNCR
+Label: Were any CT or CAT scans done to check for lung cancer?
+Question: Were any of the CT or CAT scans of your chest area done mainly to check or screen for lung cancer?
+Categories:
+  Value: 1, Label: Yes, Freq: 31581, Perc: 19.07
+  Value: 2, Label: NoGo to Section 14.01 ALCDAY4, Freq: 124356, Perc: 75.11
+  Value: 7, Label: Dont know/Not sureGo to Section 14.01 ALCDAY4, Freq: 9512, Perc: 5.74
+  Value: 9, Label: RefusedGo to Section 14.01 ALCDAY4, Freq: 126, Perc: 0.08
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 13.04, LCSTSC1, is coded 2, 7, 9 or missing, Freq: 279557, Perc: None
+
+
+Variable: ALCDAY4
+Label: Days in past 30 had alcoholic beverage
+Question: During the past 30 days, how many days per week or per month did you have at least one drink of any alcoholic beverage?
+Categories:
+  Value: 101 - 199, Label: Days per week
+Notes: 1_ _ = Days per week, Freq: 66151, Perc: 16.36
+  Value: 201 - 299, Label: Days in past 30 days
+Notes: 2_ _ = Days in past 30, Freq: 144740, Perc: 35.79
+  Value: 777, Label: Dont know/Not sureGo to Section 15.01 FLUSHOT7, Freq: 3447, Perc: 0.85
+  Value: 888, Label: No drinks in past 30 daysGo to Section 15.01 FLUSHOT7, Freq: 187667, Perc: 46.41
+  Value: 999, Label: RefusedGo to Section 15.01 FLUSHOT7, Freq: 2364, Perc: 0.58
+  Value: BLANK, Label: Not asked or Missing, Freq: 40763, Perc: None
+
+
+Variable: AVEDRNK3
+Label: Avg alcoholic drinks per day in past 30
+Question: One drink is equivalent to a 12-ounce beer, a 5-ounce glass of wine, or a drink with one shot of liquor. During the past 30 days, on the days when you drank, about how many drinks did you drink on the average? (A 40 ounce beer would count as 3 drinks, or a cocktail drink with 2 shots would count as 2 drinks.)
+Categories:
+  Value: 1 - 76, Label: Number of drinks
+Notes: _ _ Number of drinks, Freq: 206595, Perc: 98.21
+  Value: 88, Label: None, Freq: 1165, Perc: 0.55
+  Value: 77, Label: Dont know/Not sure, Freq: 2143, Perc: 1.02
+  Value: 99, Label: Refused, Freq: 460, Perc: 0.22
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 14.01, ALCDAY4, is coded 888, 777, or 999;, Freq: 234769, Perc: None
+
+
+Variable: DRNK3GE5
+Label: Binge Drinking
+Question: Considering all types of alcoholic beverages, how many times during the past 30 days did you have 5 or more drinks for men or 4 or more drinks for women on an occasion?
+Categories:
+  Value: 1 - 76, Label: Number of Times, Freq: 56916, Perc: 27.12
+  Value: 88, Label: None, Freq: 149447, Perc: 71.22
+  Value: 77, Label: Dont know/Not Sure, Freq: 2940, Perc: 1.4
+  Value: 99, Label: Refused, Freq: 546, Perc: 0.26
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 14.01, ALCDAY4, is coded 888, 777, or 999;, Freq: 235283, Perc: None
+
+
+Variable: MAXDRNKS
+Label: Most drinks on single occasion past 30 days
+Question: During the past 30 days, what is the largest number of drinks you had on any occasion?
+Categories:
+  Value: 0, Label: , Freq: 4, Perc: 0.0
+  Value: 1 - 76, Label: Number of drinks, Freq: 202765, Perc: 96.83
+  Value: 77, Label: Dont know/Not sure, Freq: 5592, Perc: 2.67
+  Value: 99, Label: Refused, Freq: 1050, Perc: 0.5
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 14.01, ALCDAY4, is coded 888, 777, or 999;, Freq: 235721, Perc: None
+
+
+Variable: HIVRISK5
+Label: Do Any High Risk Situations Apply
+Question: I am going to read you a list. When I am done, please tell me if any of the situations apply to you. You do not need to tell me which one. You have injected any drug other than those prescribed for you in the past year. You have been treated for a sexually transmitted disease or STD in the past year. You have given or received money or drugs in exchange for sex in the past year.
+Categories:
+  Value: 1, Label: Yes, Freq: 17185, Perc: 4.33
+  Value: 2, Label: No, Freq: 377324, Perc: 95.12
+  Value: 7, Label: Dont know/Not sure, Freq: 450, Perc: 0.11
+  Value: 9, Label: Refused, Freq: 1712, Perc: 0.43
+  Value: BLANK, Label: Not asked or Missing, Freq: 48461, Perc: None
+
+
+Variable: COVIDPOS
+Label: Have you ever been told you tested positive for COVID 19?
+Question: Has a doctor, nurse, or other health professional ever told you that you tested positive for COVID 19?
+Categories:
+  Value: 1, Label: Yes, Freq: 110877, Perc: 28.01
+  Value: 2, Label: NoGo to next section, Freq: 270055, Perc: 68.21
+  Value: 3, Label: Tested positive using home test without health professional, Freq: 13436, Perc: 3.39
+  Value: 7, Label: Dont know/Not SureGo to next section, Freq: 647, Perc: 0.16
+  Value: 9, Label: RefusedGo to next section, Freq: 882, Perc: 0.22
+  Value: BLANK, Label: Not asked or Missing, Freq: 49235, Perc: None
+
+
+Variable: COVIDSMP
+Label: Have an 3 month or longer covid symptoms?
+Question: Did you have any symptoms lasting 3 months or longer that you did not have prior to having coronavirus or COVID-19?
+Categories:
+  Value: 1, Label: Yes, Freq: 26783, Perc: 21.56
+  Value: 2, Label: NoGo to next section, Freq: 94596, Perc: 76.16
+  Value: 7, Label: Dont know/Not SureGo to next section, Freq: 2710, Perc: 2.18
+  Value: 9, Label: RefusedGo to next section, Freq: 110, Perc: 0.09
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 17.01, COVIDPOS, is coded 2, 7, 9, or Missing, Freq: 320933, Perc: None
+
+
+Variable: COVIDPRM
+Label: Which was the primary symptom that you experienced?
+Question: Which of the following was the primary symptom that you experienced? Was it.
+Categories:
+  Value: 1, Label: Tiredness or fatigue, Freq: 7072, Perc: 26.47
+  Value: 2, Label: Difficulty thinking or concentrating or forgetfulness/memory problems (sometimes referred to as brain fog), Freq: 2564, Perc: 9.6
+  Value: 3, Label: Difficulty breathing or shortness of breath, Freq: 4772, Perc: 17.86
+  Value: 4, Label: Joint or muscle pain, Freq: 1378, Perc: 5.16
+  Value: 5, Label: Fast-beating or pounding heart (also known as heart palpitations) or chest pain, Freq: 724, Perc: 2.71
+  Value: 6, Label: Dizziness on standing, Freq: 409, Perc: 1.53
+  Value: 7, Label: Depression, anxiety, or mood changes, Freq: 322, Perc: 1.21
+  Value: 8, Label: Symptoms that get worse after physical or mental activities, Freq: 243, Perc: 0.91
+  Value: 9, Label: You did not have any long-term symptoms that limited your activities., Freq: 1353, Perc: 5.06
+  Value: 10, Label: Loss of taste or smell, Freq: 4234, Perc: 15.85
+  Value: 11, Label: Some other symptom, Freq: 2511, Perc: 9.4
+  Value: 77, Label: Dont know/Not Sure, Freq: 1004, Perc: 3.76
+  Value: 99, Label: Refused, Freq: 129, Perc: 0.48
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 17.01, COVIDPOS, is coded 2, 7, 9, or Missing; or Section 17.02, COVIDSMP, is coded 2, 7, 9, or Missing;, Freq: 418417, Perc: None
+
+
+Variable: PDIABTS1
+Label: When was your last blood test for high blood sugar?
+Question: When was the last time you had a blood test for high blood sugar or diabetes by a doctor, nurse, or other health professional?
+Categories:
+  Value: 1, Label: Within the past year (anytime less than 12 months ago), Freq: 89696, Perc: 63.96
+  Value: 2, Label: Within the past 2 years (1 year but less than 2 years), Freq: 13615, Perc: 9.71
+  Value: 3, Label: Within the past 3 years (2 years but less than 3 years), Freq: 5312, Perc: 3.79
+  Value: 4, Label: Within the past 5 years (3 to 4 years but less than 5 years ago), Freq: 4475, Perc: 3.19
+  Value: 5, Label: Within the past 10 years (5 to 9 years but less than 10 years ago), Freq: 2856, Perc: 2.04
+  Value: 6, Label: 10 or more years ago, Freq: 2555, Perc: 1.82
+  Value: 7, Label: Dont know / Not sure, Freq: 8762, Perc: 6.25
+  Value: 8, Label: Never, Freq: 12758, Perc: 9.1
+  Value: 9, Label: Refused, Freq: 219, Perc: 0.16
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 07.12, DIABETE4, is coded 1, Freq: 304884, Perc: None
+
+
+Variable: PREDIAB2
+Label: Ever been told by a doctor or other health professional that you have pre-diabetes or borderline diabetes?
+Question: Has a doctor or other health professional ever told you that you had prediabetes or borderline diabetes? (If Yes and respondent is female, ask: Was this only when you were pregnant?)
+Categories:
+  Value: 1, Label: Yes, Freq: 19361, Perc: 13.81
+  Value: 2, Label: Yes, during pregnancy, Freq: 1504, Perc: 1.07
+  Value: 3, Label: No, Freq: 118648, Perc: 84.61
+  Value: 7, Label: Dont know/Not Sure, Freq: 588, Perc: 0.42
+  Value: 9, Label: Refused, Freq: 121, Perc: 0.09
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 07.12, DIABETE4, is coded 1; If Section 07.12, DIABETE4, is coded 4 automatically code Module 01.02, PREDIAB2, equal to 1 (yes);, Freq: 304910, Perc: None
+
+
+Variable: DIABTYPE
+Label: What type of diabetes do you have?
+Question: According to your doctor or other health professional, what type of diabetes do you have?
+Categories:
+  Value: 1, Label: Type 1, Freq: 1050, Perc: 8.33
+  Value: 2, Label: Type 2, Freq: 10559, Perc: 83.8
+  Value: 7, Label: Dont know/Not Sure, Freq: 966, Perc: 7.67
+  Value: 9, Label: Refused, Freq: 25, Perc: 0.2
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 07.12, DIABETE4, is coded 2, 3, 4, 7, 9, or Missing, Freq: 432532, Perc: None
+
+
+Variable: FEETSORE
+Label: Ever Had Feet Sores or Irritations Lasting More Than Four Weeks
+Question: Have you ever had any sores or irritations on your feet that took more than four weeks to heal?
+Categories:
+  Value: 1, Label: Yes, Freq: 1151, Perc: 9.13
+  Value: 2, Label: No, Freq: 11398, Perc: 90.46
+  Value: 7, Label: Dont know/Not sure, Freq: 46, Perc: 0.37
+  Value: 9, Label: Refused, Freq: 5, Perc: 0.04
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 07.12, DIABETE4, is coded 2, 3, 4, 7, 9, or Missing, Freq: 432532, Perc: None
+
+
+Variable: TOLDCFS
+Label: Told had Chronic Fatigue Syndrome (CFS) or (Myalgic Encephalomyelitis) ME
+Question: Have you ever been told by a doctor or other health professional that you had Chronic Fatigue Syndrome (CFS) or (Myalgic Encephalomyelitis) ME?
+Categories:
+  Value: BLANK, Label: Not asked or Missing, Freq: 445132, Perc: None
+
+
+Variable: HAVECFS
+Label: Still have Chronic Fatigue Syndrome or Myalgic Encephalomyelitis
+Question: Do you still have Chronic Fatigue Syndrome (CFS) or (Myalgic Encephalomyelitis) ME?
+Categories:
+  Value: BLANK, Label: Not asked or Missing
+Notes: Module 03.01, TOLDCFS, is coded 2, 7, 9, or Missing, Freq: 445132, Perc: None
+
+
+Variable: COPDCOGH
+Label: Did you have a cough?
+Question: During the past 3 months, did you have a cough on most days?
+Categories:
+  Value: 1, Label: Yes, Freq: 939, Perc: 12.92
+  Value: 2, Label: No, Freq: 6296, Perc: 86.61
+  Value: 7, Label: Dont know/Not Sure, Freq: 25, Perc: 0.34
+  Value: 9, Label: Refused, Freq: 9, Perc: 0.12
+  Value: BLANK, Label: Not asked or Missing, Freq: 437863, Perc: None
+
+
+Variable: COPDFLEM
+Label: Did you cough up phlegm?
+Question: During the past 3 months, did you cough up phlegm [FLEM] or mucus on most days?
+Categories:
+  Value: 1, Label: Yes, Freq: 925, Perc: 12.74
+  Value: 2, Label: No, Freq: 6303, Perc: 86.79
+  Value: 7, Label: Dont know/Not Sure, Freq: 26, Perc: 0.36
+  Value: 9, Label: Refused, Freq: 8, Perc: 0.11
+  Value: BLANK, Label: Not asked or Missing, Freq: 437870, Perc: None
+
+
+Variable: COPDBRTH
+Label: Did you have shortness of breath?
+Question: Do you have shortness of breath either when hurrying on level ground or when walking up a slight hill or stairs?
+Categories:
+  Value: 1, Label: Yes, Freq: 1899, Perc: 26.2
+  Value: 2, Label: No, Freq: 5305, Perc: 73.18
+  Value: 7, Label: Dont know/Not Sure, Freq: 35, Perc: 0.48
+  Value: 9, Label: Refused, Freq: 10, Perc: 0.14
+  Value: BLANK, Label: Not asked or Missing, Freq: 437883, Perc: None
+
+
+Variable: COPDBTST
+Label: Have you ever been given a breathing test?
+Question: Have you ever been given a breathing test to diagnose breathing problems?
+Categories:
+  Value: 1, Label: Yes, Freq: 2171, Perc: 30.02
+  Value: 2, Label: No, Freq: 4954, Perc: 68.5
+  Value: 7, Label: Dont know/Not Sure, Freq: 103, Perc: 1.42
+  Value: 9, Label: Refused, Freq: 4, Perc: 0.06
+  Value: BLANK, Label: Not asked or Missing, Freq: 437900, Perc: None
+
+
+Variable: COPDSMOK
+Label: How many years have you smoked tobacco products?
+Question: Over your lifetime, how many years have you smoked tobacco products?
+Categories:
+  Value: 1 - 76, Label: Number of years, Freq: 2808, Perc: 38.92
+  Value: 88, Label: Never smoked or smoked < one year, Freq: 4126, Perc: 57.19
+  Value: 77, Label: Dont know/Not sure, Freq: 232, Perc: 3.22
+  Value: 99, Label: Refused, Freq: 49, Perc: 0.68
+  Value: BLANK, Label: Not asked or Missing, Freq: 437917, Perc: None
+
+
+Variable: CNCRDIFF
+Label: How Many Types of Cancer?
+Question: How many different types of cancer have you had?
+Categories:
+  Value: 1, Label: Only one, Freq: 17566, Perc: 75.07
+  Value: 2, Label: Two, Freq: 4070, Perc: 17.39
+  Value: 3, Label: Three or more, Freq: 947, Perc: 4.05
+  Value: 7, Label: Dont know/Not SureGo to next module, Freq: 425, Perc: 1.82
+  Value: 9, Label: RefusedGo to next module, Freq: 391, Perc: 1.67
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 07.06, CHCSCNC1, is coded 2, 7, 9 or Missing and Section 07.07, CHCOCNC1, is coded 2, 7, 9 or missing;, Freq: 421733, Perc: None
+
+
+Variable: CSRVDOC1
+Label: What Type of Doctor Provides Majority of Your Care
+Question: What type of doctor provides the majority of your health care? Is it a.
+Categories:
+  Value: 1, Label: Cancer Surgeon, Freq: 348, Perc: 3.55
+  Value: 2, Label: Family Practitioner, Freq: 3861, Perc: 39.37
+  Value: 3, Label: General Surgeon, Freq: 155, Perc: 1.58
+  Value: 4, Label: Gynecologic OncologistShould not be answered if male respondent, Freq: 231, Perc: 2.36
+  Value: 5, Label: General Practitioner, Internist, Freq: 2717, Perc: 27.7
+  Value: 6, Label: Plastic Surgeon, Reconstructive Surgeon, Freq: 50, Perc: 0.51
+  Value: 7, Label: Medical Oncologist, Freq: 481, Perc: 4.9
+  Value: 8, Label: Radiation Oncologist, Freq: 93, Perc: 0.95
+  Value: 9, Label: Urologist, Freq: 184, Perc: 1.88
+  Value: 10, Label: Other, Freq: 1405, Perc: 14.33
+  Value: 77, Label: Dont know/Not Sure, Freq: 251, Perc: 2.56
+  Value: 99, Label: Refused, Freq: 31, Perc: 0.32
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 07.06, CHCSCNC1, is coded 2, 7, 9 or Missing and Section 07.07, CHCOCNC1, is coded 2, 7, 9 or missing;or Module 10.01, CSRVTRT3, is coded 1, 3, 4, 5, 7, 9 or Missing;, Freq: 435325, Perc: None
+
+
+Variable: CSRVDEIN
+Label: Ever Denied Insurance Coverage Because Of Your Cancer?
+Question: Were you ever denied health insurance or life insurance coverage because of your cancer?
+Categories:
+  Value: 1, Label: Yes, Freq: 500, Perc: 5.13
+  Value: 2, Label: No, Freq: 9171, Perc: 94.16
+  Value: 7, Label: Dont know/Not Sure, Freq: 48, Perc: 0.49
+  Value: 9, Label: Refused, Freq: 21, Perc: 0.22
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 07.06, CHCSCNC1, is coded 2, 7, 9 or Missing and Section 07.07, CHCOCNC1, is coded 2, 7, 9 or missing;or Module 10.01, CSRVTRT3, is coded 1, 3, 4, 5, 7, 9 or Missing;, Freq: 435392, Perc: None
+
+
+Variable: CSRVPAIN
+Label: Currently Have Physical Pain From Cancer Or Treatment?
+Question: Do you currently have physical pain caused by your cancer or cancer treatment?
+Categories:
+  Value: 1, Label: Yes, Freq: 1544, Perc: 9.03
+  Value: 2, Label: NoGo to next module, Freq: 15275, Perc: 89.34
+  Value: 7, Label: Dont know/Not SureGo to next module, Freq: 107, Perc: 0.63
+  Value: 9, Label: RefusedGo to next module, Freq: 171, Perc: 1.0
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 07.06, CHCSCNC1, is coded 2, 7, 9 or Missing and Section 07.07, CHCOCNC1, is coded 2, 7, 9 or missing;, Freq: 428035, Perc: None
+
+
+Variable: CSRVCTL2
+Label: Is Pain Under Control?
+Question: Would you say your pain is currently under control?
+Categories:
+  Value: 1, Label: With medication (or treatment), Freq: 619, Perc: 40.17
+  Value: 2, Label: Without medication (or treatment), Freq: 518, Perc: 33.61
+  Value: 3, Label: Not under control, with medication (or treatment), Freq: 135, Perc: 8.76
+  Value: 4, Label: Not under control, without medication (or treatment), Freq: 217, Perc: 14.08
+  Value: 7, Label: Dont know/Not Sure, Freq: 44, Perc: 2.86
+  Value: 9, Label: Refused, Freq: 8, Perc: 0.52
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 07.06, CHCSCNC1, is coded 2, 7, 9 or Missing and Section 07.07, CHCOCNC1, is coded 2, 7, 9 or missing; or Module 11.01, CSRVPAIN, is coded 2, 7, 9 or missing;, Freq: 443591, Perc: None
+
+
+Variable: PSATEST1
+Label: Ever Had PSA Test
+Question: Have you ever had a P.S.A. test?
+Categories:
+  Value: 1, Label: Yes, Freq: 3951, Perc: 55.03
+  Value: 2, Label: NoGo to Module 12.04 PSASUGST, Freq: 2680, Perc: 37.33
+  Value: 7, Label: Dont know/Not SureGo to Module 12.04 PSASUGST, Freq: 504, Perc: 7.02
+  Value: 9, Label: RefusedGo to Module 12.04 PSASUGST, Freq: 45, Perc: 0.63
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 08.01, AGE, is less than 40; or respondent sex, SEXVAR, is coded 2; or Module 25.01, BIRTHSEX,, is coded 2;, Freq: 437952, Perc: None
+
+
+Variable: PCPSARS2
+Label: What was the MAIN reason you had this PSA test?
+Question: What was the main reason you had this P.S.A. test was it ?
+Categories:
+  Value: 1, Label: Part of a routine exam, Freq: 3195, Perc: 81.17
+  Value: 2, Label: Because of a problem, Freq: 395, Perc: 10.04
+  Value: 3, Label: Other reason, Freq: 294, Perc: 7.47
+  Value: 7, Label: Dont know/Not Sure, Freq: 45, Perc: 1.14
+  Value: 9, Label: Refused, Freq: 7, Perc: 0.18
+  Value: BLANK, Label: Not asked or Missing
+Notes: Section 08.01, AGE, is less than 40; or respondent sex, SEXVAR, is coded 2; or Module 25.01, BIRTHSEX,, is coded 2; or Module 12.01, PSATEST1, is coded, 2, 7, 9, or Missing, Freq: 441196, Perc: None
+
+
+Variable: _RFHLTH
+Label: Adults with good or better health
+Question: Adults with good or better health
+Categories:
+  Value: 1, Label: Good or Better Health
+Notes: GENHLTH = 1 or 2 or 3, Freq: 363920, Perc: 81.76
+  Value: 2, Label: Fair or Poor Health
+Notes: GENHLTH = 4 or 5, Freq: 80014, Perc: 17.98
+  Value: 9, Label: Dont know/Not Sure Or Refused/Missing
+Notes: GENHLTH = 7 or 9 or Missing, Freq: 1198, Perc: 0.27
+
+
+Variable: _PHYS14D
+Label: Computed Physical Health Status
+Question: 3 level not good physical health status: 0 days, 1-13 days, 14-30 days
+Categories:
+  Value: 1, Label: Zero days when physical health not good, Freq: 267819, Perc: 60.17
+  Value: 2, Label: 1-13 days when physical health not good, Freq: 108312, Perc: 24.33
+  Value: 3, Label: 14+ days when physical health not good, Freq: 58074, Perc: 13.05
+  Value: 9, Label: Dont know/Refused/Missing, Freq: 10927, Perc: 2.45
+
+
+Variable: _MENT14D
+Label: Computed Mental Health Status
+Question: 3 level not good mental health status: 0 days, 1-13 days, 14-30 days
+Categories:
+  Value: 1, Label: Zero days when mental health not good, Freq: 265229, Perc: 59.58
+  Value: 2, Label: 1-13 days when mental health not good, Freq: 110616, Perc: 24.85
+  Value: 3, Label: 14+ days when mental health not good, Freq: 60220, Perc: 13.53
+  Value: 9, Label: Dont know/Refused/Missing, Freq: 9067, Perc: 2.04
+
+
+Variable: _HLTHPLN
+Label: Have any health insurance
+Question: Adults who had some form of health insurance
+Categories:
+  Value: 1, Label: Have some form of insurance
+Notes: PRIMINSR=1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Freq: 404229, Perc: 90.81
+  Value: 2, Label: Do not have some form of health insurance
+Notes: PRIMINSR=88, Freq: 23018, Perc: 5.17
+  Value: 9, Label: Dont know, refused or missing insurance response
+Notes: PRIMINSR=77, 99, or missing, Freq: 17885, Perc: 4.02
+
+
+Variable: _HCVU652
+Label: Respondents aged 18-64 with health insurance
+Question: Respondents aged 18-64 who have any form of health insurance
+Categories:
+  Value: 1, Label: Have some form of health insurance
+Notes: 18 <= AGE <=64 and PRIMINSR=1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Freq: 244591, Perc: 54.95
+  Value: 2, Label: Do not have any form of health insurance
+Notes: 18 <= AGE <= 64 and PRIMINSR=88, Freq: 21602, Perc: 4.85
+  Value: 9, Label: Dont know/Not Sure, Refused or Missing
+Notes: 18 <= AGE <= 64 and PRIMINSR=77, 99, or missing or AGE => 65, Freq: 178939, Perc: 40.2
+
+
+Variable: _TOTINDA
+Label: Leisure Time Physical Activity Calculated Variable
+Question: Adults who reported doing physical activity or exercise during the past 30 days other than their regular job
+Categories:
+  Value: 1, Label: Had physical activity or exercise
+Notes: EXERANY2 = 1, Freq: 337559, Perc: 75.83
+  Value: 2, Label: No physical activity or exercise in last 30 days
+Notes: EXERANY2 = 2, Freq: 106480, Perc: 23.92
+  Value: 9, Label: Dont know/Refused/Missing
+Notes: EXERANY2 = 7 or 9 or Missing, Freq: 1093, Perc: 0.25
+
+
+Variable: _LTASTH1
+Label: Lifetime Asthma Calculated Variable
+Question: Adults who have ever been told they have asthma
+Categories:
+  Value: 1, Label: No
+Notes: ASTHMA3 = 2, Freq: 376665, Perc: 84.62
+  Value: 2, Label: Yes
+Notes: ASTHMA3 = 1, Freq: 66694, Perc: 14.98
+  Value: 9, Label: Dont know/Not Sure Or Refused/Missing
+Notes: ASTHMA3 = 7 or 9 or Missing, Freq: 1773, Perc: 0.4
+
+
+Variable: _CASTHM1
+Label: Current Asthma Calculated Variable
+Question: Adults who have been told they currently have asthma
+Categories:
+  Value: 1, Label: No
+Notes: ASTHMA3 = 2 or ASTHMA3 = 1 and ASTHNOW = 2, Freq: 395613, Perc: 88.88
+  Value: 2, Label: Yes
+Notes: ASTHMA3 = 1 and ASTHNOW = 1, Freq: 45659, Perc: 10.26
+  Value: 9, Label: Dont know/Not Sure Or Refused/Missing
+Notes: ASTHMA3 = 7 or 9 or Missing or ASTHNOW = 7 or 9 or Missing, Freq: 3860, Perc: 0.87
+
+
+Variable: _ASTHMS1
+Label: Computed Asthma Status
+Question: Computed asthma status
+Categories:
+  Value: 1, Label: Current
+Notes: ASTHMA3 = 1 and ASTHNOW = 1, Freq: 45659, Perc: 10.26
+  Value: 2, Label: Former
+Notes: ASTHMA3 = 1 and ASTHNOW = 2, Freq: 18948, Perc: 4.26
+  Value: 3, Label: Never
+Notes: ASTHMA3 = 2, Freq: 376665, Perc: 84.62
+  Value: 9, Label: Dont know/Not Sure Or Refused/Missing
+Notes: ASTHMA3 = 7 or 9 or Missing or ASTHNOW = 7 or 9 or Missing, Freq: 3860, Perc: 0.87
+
+
+Variable: _SEX
+Label: Calculated sex variable
+Question: Calculated sex variable
+Categories:
+  Value: 1, Label: Male
+Notes: BIRTHSEX=1 or BIRTHSEX notin (1,2) and SEXVAR=1, Freq: 209238, Perc: 47.01
+  Value: 2, Label: Female
+Notes: BIRTHSEX=2 or BIRTHSEX notin (1,2) and SEXVAR=2, Freq: 235894, Perc: 52.99
+
+
+Variable: _AGEG5YR
+Label: Reported age in five-year age categories calculated variable
+Question: Fourteen-level age category
+Categories:
+  Value: 1, Label: Age 18 to 24
+Notes: 18 <= AGE <= 24, Freq: 26941, Perc: 6.05
+  Value: 2, Label: Age 25 to 29
+Notes: 25 <= AGE <= 29, Freq: 21990, Perc: 4.94
+  Value: 3, Label: Age 30 to 34
+Notes: 30 <= AGE <= 34, Freq: 25807, Perc: 5.8
+  Value: 4, Label: Age 35 to 39
+Notes: 35 <= AGE <= 39, Freq: 28526, Perc: 6.41
+  Value: 5, Label: Age 40 to 44
+Notes: 40 <= AGE <= 44, Freq: 29942, Perc: 6.73
+  Value: 6, Label: Age 45 to 49
+Notes: 45 <= AGE <= 49, Freq: 28531, Perc: 6.41
+  Value: 7, Label: Age 50 to 54
+Notes: 50 <= AGE <= 54, Freq: 33644, Perc: 7.56
+  Value: 8, Label: Age 55 to 59
+Notes: 55 <= AGE <= 59, Freq: 36821, Perc: 8.27
+  Value: 9, Label: Age 60 to 64
+Notes: 60 <= AGE <= 64, Freq: 44511, Perc: 10.0
+  Value: 10, Label: Age 65 to 69
+Notes: 65 <= AGE <= 69, Freq: 47099, Perc: 10.58
+  Value: 11, Label: Age 70 to 74
+Notes: 70 <= AGE <= 74, Freq: 43472, Perc: 9.77
+  Value: 12, Label: Age 75 to 79
+Notes: 75 <= AGE <= 79, Freq: 32518, Perc: 7.31
+  Value: 13, Label: Age 80 or older
+Notes: 80 <= AGE <= 99, Freq: 36251, Perc: 8.14
+  Value: 14, Label: Dont know/Refused/Missing
+Notes: 7 <= AGE <= 9, Freq: 9079, Perc: 2.04
+
+
+Variable: _SMOKER3
+Label: Computed Smoking Status
+Question: Four-level smoker status: Everyday smoker, Someday smoker, Former smoker, Non-smoker
+Categories:
+  Value: 1, Label: Current smoker - now smokes every day
+Notes: SMOKE100 = 1 and SMOKEDAY = 1, Freq: 36003, Perc: 8.09
+  Value: 2, Label: Current smoker - now smokes some days
+Notes: SMOKE100 = 1 and SMOKEDAY = 2, Freq: 13938, Perc: 3.13
+  Value: 3, Label: Former smoker
+Notes: SMOKE100 = 1 and SMOKEDAY = 3, Freq: 113774, Perc: 25.56
+  Value: 4, Label: Never smoked
+Notes: SMOKE100 = 2, Freq: 245955, Perc: 55.25
+  Value: 9, Label: Dont know/Refused/Missing
+Notes: SMOKE100 = 1 and SMOKEDAY = 9 or SMOKE100 = 7 or 9 or Missing, Freq: 35462, Perc: 7.97
+
+
+Variable: _CURECI2
+Label: Current E-cigarette User Calculated Variable
+Question: Adults who are current e-cigarette users
+Categories:
+  Value: 1, Label: Not currently using E-cigarettes
+Notes: ECIGNOW2=1, 4, Freq: 387356, Perc: 87.02
+  Value: 2, Label: Current E-cigarette user
+Notes: ECIGNOW2=2,3, Freq: 22116, Perc: 4.97
+  Value: 9, Label: Dont know/Refused/Missing
+Notes: ECIGNOW2=7,9, or missing, Freq: 35660, Perc: 8.01
+
+
+Variable: _PACKDAY
+Label: Number of packs of cigarettes smoked per day
+Question: Number of packs of cigarettes smoked per day
+Categories:
+  Value: 0 - 100, Label: Number of packs of cigarettes smoked per day
+Notes: _PACKDAY=(LCSNUMCG_/20), Freq: 150247, Perc: 100.0
+  Value: BLANK, Label: Dont know/Refused/Missing, Freq: 294885, Perc: None
+
+
+Variable: _SMOKGRP
+Label: Smoking Group
+Question: Smoking Group
+Categories:
+  Value: 1, Label: Current smoker, 20+ Pack Years
+Notes: _SMOKER3 IN (1,2) AND _PACKYRS>=20, Freq: 22620, Perc: 5.52
+  Value: 2, Label: Former smoker, 20+ Pack Years, quit < 15 years
+Notes: _SMOKER3=3 AND _PACKYRS>=20 AND 0<=_YRSQUIT< 15, Freq: 13825, Perc: 3.37
+  Value: 3, Label: All other current and former smokers
+Notes: All others where _SMOKER3 IN (1,2,3), Freq: 127270, Perc: 31.07
+  Value: 4, Label: Never smoker
+Notes: _SMOKER3=4, Freq: 245955, Perc: 60.04
+  Value: BLANK, Label: Dont know/Refused/Missing, Freq: 35462, Perc: None
+
+
+Variable: _LCSREC
+Label: Lung cancer screening recommendation status
+Question: Lung cancer screening recommendation status
+Categories:
+  Value: 1, Label: Meet USPSTF recommendation: did have CAT/CT chest scan in last year
+Notes: LCSSCNCR=1 AND _SMOKGRP in (1,2) AND LCSCTWHN=1, Freq: 4943, Perc: 9.61
+  Value: 2, Label: Does not meet USPSTF recommendation: did not have CAT/CT chest scan in last year
+Notes: All other current and former smokers, Freq: 46510, Perc: 90.39
+  Value: BLANK, Label: Dont know/Refused/Missing, Freq: 393679, Perc: None
+
+
+Variable: _RFDRHV8
+Label: Heavy Alcohol Consumption Calculated Variable
+Question: Heavy drinkers (adult men having more than 14 drinks per week and adult women having more than 7 drinks per week)
+Categories:
+  Value: 1, Label: No
+Notes: (SEXVAR=1 or BIRTHSEX=1) and _DRNKWK2 <= 1400 or (SEXVAR=2 or BIRTHSEX=2) and _DRNKWK2 <= 700 or ALCDAY4=888, Freq: 369122, Perc: 82.92
+  Value: 2, Label: Yes
+Notes: (SEXVAR=1 or BIRTHSEX=1) and _DRNKWK2 > 1400 or (SEXVAR=2 or BIRTHSEX=2) and _DRNKWK2 > 700, Freq: 26305, Perc: 5.91
+  Value: 9, Label: Dont know/Refused/Missing
+Notes: ALCDAY5=777, 999, or missing, or _DRNKWEK=99, or missing, Freq: 49705, Perc: 11.17
+
+
+Variable: _FLSHOT7
+Label: Flu Shot Calculated Variable
+Question: Adults aged 65+ who have had a flu shot within the past year
+Categories:
+  Value: 1, Label: Yes
+Notes: AGE >=65 and FLUSHOT7 = 1, Freq: 100950, Perc: 59.94
+  Value: 2, Label: No
+Notes: AGE >=65 and FLUSHOT7 = 2, Freq: 43777, Perc: 25.99
+  Value: 9, Label: Dont know/Not Sure Or Refused/Missing, Freq: 23692, Perc: 14.07
+  Value: BLANK, Label: Age < 65, Freq: 276713, Perc: None
+
+
+Variable: _PNEUMO3
+Label: Pneumonia Vaccination Calculated Variable
+Question: Adults aged 65+ who have ever had a pneumonia vaccination
+Categories:
+  Value: 1, Label: Yes
+Notes: AGE >= 65 and PNEUVAC4 = 1, Freq: 100859, Perc: 59.89
+  Value: 2, Label: No
+Notes: AGE >= 65 and PNEUVAC4 = 2, Freq: 39370, Perc: 23.38
+  Value: 9, Label: Dont know/Not Sure Or Refused/Missing
+Notes: AGE = 7 or 9 or Missing or PNEUVAC4 = 7 or 9 or Missing, Freq: 28190, Perc: 16.74
+  Value: BLANK, Label: Age < 65
