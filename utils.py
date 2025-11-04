@@ -140,11 +140,35 @@ class HTMLParser():
 
         print(f"✅ Fichier généré : {output_path}")
 
+def ft_in_to_cm(s):
+    s = str(s).zfill(3)  
+    feet = int(s[0])
+    inches = int(s[1:])
+    return feet * 30.48 + inches * 2.54
+
+def feature_classification_from_codebook(codebook: list, features: list) -> dict:
+    classification = {}
+    for item in codebook:
+        if item.get("sas_variable") in features:
+            var_name = item.get("sas_variable")
+            
+            categories = item.get("categories", [])
+            print(categories)
+            categories.sort(key=lambda x: x.get("value", 0))
+
+
+            if categories and categories[0].get("value") != '1':
+                classification[var_name] = "numerical"
+
+            else:
+                classification[var_name] = "categorical"
+    return classification
+
 
 # Handle missing values for categorical features
-categorical_features = [feat for feat, info in features_classification.items() if info['type'] == 'categorical']
-data_reduced[categorical_features] = data_reduced[categorical_features].fillna(-1)
+# categorical_features = [feat for feat, info in features_classification.items() if info['type'] == 'categorical']
+# data_reduced[categorical_features] = data_reduced[categorical_features].fillna(-1)
 
-data_reduced[categorical_features] = data_reduced[categorical_features].astype('category')
+# data_reduced[categorical_features] = data_reduced[categorical_features].astype('category')
 
 
