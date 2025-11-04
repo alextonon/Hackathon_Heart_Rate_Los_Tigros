@@ -101,3 +101,50 @@ class HTMLParser():
 
         return items
 
+    def generate_kept_feature_explainer(features: list, dict_data: list, output_path: str = "kept_features_explainer.txt"):
+        """
+        Génère un fichier texte décrivant chaque variable retenue.
+
+        Args:
+            features (list): Liste des variables retenues.
+            dict_data (list): Dictionnaire contenant les métadonnées (sas_variable, label, question, categories...).
+            output_path (str): Chemin du fichier texte de sortie.
+        """
+
+        with open(output_path, "w", encoding="utf-8") as f:
+            for col in features:
+                f.write(f"Variable: {col}\n")
+                entry = next((item for item in dict_data if item.get("sas_variable") == col), None)
+
+                if entry:
+                    f.write(f"Label: {entry.get('label', 'N/A')}\n")
+                    f.write(f"Question: {entry.get('question', 'N/A')}\n")
+                    f.write("Categories:\n")
+
+                    total = 0
+                    for cat in entry.get("categories", []):
+                        value = cat.get("value", "N/A")
+                        label = cat.get("label", "N/A")
+                        freq = cat.get("frequency", "N/A")
+                        perc = cat.get("percentage", "N/A")
+
+                        f.write(f"  - Value: {value}, Label: {label}, Freq: {freq}, Perc: {perc}\n")
+                        if isinstance(freq, (int, float)):
+                            total += freq
+
+                    f.write(f"  Total Frequency: {total}\n")
+                else:
+                    f.write("No dictionary entry found.\n")
+
+                f.write("\n" + "-"*60 + "\n\n")
+
+        print(f"✅ Fichier généré : {output_path}")
+
+
+# Handle missing values for categorical features
+categorical_features = [feat for feat, info in features_classification.items() if info['type'] == 'categorical']
+data_reduced[categorical_features] = data_reduced[categorical_features].fillna(-1)
+
+data_reduced[categorical_features] = data_reduced[categorical_features].astype('category')
+
+
