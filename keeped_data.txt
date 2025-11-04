@@ -58,49 +58,6 @@ Categories:
   Value: 78, Label: Virgin Islands, Freq: 1531, Perc: 0.34
 
 
-Variable: LADULT1
-Label: Are you 18 years of age or older?
-Question: Are you 18 years of age or older?
-Categories:
-  Value: 1, Label: YesIf LL.03, COLGHOUS, is 1 go to LL.07, COLGSEX1; else go to LL.08, NUMADULT, Freq: 95885, Perc: 99.83
-  Value: 2, Label: NoIf LL.03, COLGHOUS, is 1 Terminate Phone Call, else go to LL.08, NUMADULT, Freq: 165, Perc: 0.17
-  Value: BLANK, Label: Not asked or Missing
-Notes: QSTVER >= 20, Freq: 349082, Perc: None
-
-
-Variable: COLGSEX1
-Label: Are you male or female?
-Question: Are you male or female?
-Categories:
-  Value: 1, Label: MaleGo to Section 01.01 GENHLTH, Freq: 5, Perc: 23.81
-  Value: 2, Label: FemaleGo to Section 01.01 GENHLTH, Freq: 16, Perc: 76.19
-  Value: BLANK, Label: Not asked or Missing
-Notes: QSTVER >= 20; or if LL.03, COLGHOUS, is not coded 1, Freq: 445111, Perc: None
-
-
-Variable: LANDSEX1
-Label: Are you male or female?
-Question: Are you male or female?
-Categories:
-  Value: 0, Label: , Freq: 1, Perc: 0.0
-  Value: 1, Label: MaleGo to C01.01, GENHLTH, Freq: 13424, Perc: 30.72
-  Value: 2, Label: FemaleGo to C01.01, GENHLTH, Freq: 30247, Perc: 69.22
-  Value: 3, Label: NonbinaryInsert Sex at Birth module or Terminate Phone Call, Freq: 7, Perc: 0.02
-  Value: 7, Label: Dont know/Not SureInsert Sex at Birth module or Terminate Phone Call, Freq: 7, Perc: 0.02
-  Value: 9, Label: RefusedInsert Sex at Birth module or Terminate Phone Call, Freq: 10, Perc: 0.02
-  Value: BLANK, Label: Not asked or Missing
-Notes: QSTVER >= 20; or if LL.08, NUMADULT, is greater than 1, Freq: 401436, Perc: None
-
-
-Variable: CADULT1
-Label: Are you 18 years of age or older?
-Question: Are you 18 years of age or older?
-Categories:
-  Value: 1, Label: YesGo to CP.05, CELLSEX1, Freq: 349080, Perc: 100.0
-  Value: BLANK, Label: Not asked or Missing
-Notes: QSTVER < 20, Freq: 96052, Perc: None
-
-
 Variable: CELLSEX1
 Label: Are you male or female?
 Question: Are you male or female?
@@ -112,14 +69,6 @@ Categories:
   Value: 9, Label: RefusedInsert Sex at Birth module or Terminate Phone Call, Freq: 113, Perc: 0.03
   Value: BLANK, Label: Not asked or Missing
 Notes: QSTVER < 20, Freq: 96053, Perc: None
-
-
-Variable: SEXVAR
-Label: Sex of Respondent
-Question: Sex of Respondent
-Categories:
-  Value: 1, Label: MaleCode=1 if LANDSEX1=1 or CELLSEX1=1 or COLGSEX1=1, Freq: 209239, Perc: 47.01
-  Value: 2, Label: FemaleCode=2 if LANDSEX1=2 or CELLSEX1=2 or COLGSEX1=2, Freq: 235893, Perc: 52.99
 
 
 Variable: GENHLTH
@@ -259,29 +208,6 @@ Categories:
   Value: 7, Label: Dont know/Not sure, Freq: 1274, Perc: 0.29
   Value: 9, Label: Refused, Freq: 281, Perc: 0.06
   Value: BLANK, Label: Not asked or Missing, Freq: 2, Perc: None
-
-
-Variable: ASTHMA3
-Label: Ever Told Had Asthma
-Question: (Ever told) (you had) asthma?
-Categories:
-  Value: 1, Label: Yes, Freq: 66694, Perc: 14.98
-  Value: 2, Label: NoGo to Section 07.06 CHCSCNC1, Freq: 376665, Perc: 84.62
-  Value: 7, Label: Dont know/Not SureGo to Section 07.06 CHCSCNC1, Freq: 1494, Perc: 0.34
-  Value: 9, Label: RefusedGo to Section 07.06 CHCSCNC1, Freq: 277, Perc: 0.06
-  Value: BLANK, Label: Not asked or Missing, Freq: 2, Perc: None
-
-
-Variable: ASTHNOW
-Label: Still Have Asthma
-Question: Do you still have asthma?
-Categories:
-  Value: 1, Label: Yes, Freq: 45659, Perc: 68.46
-  Value: 2, Label: No, Freq: 18948, Perc: 28.41
-  Value: 7, Label: Dont know/Not Sure, Freq: 2054, Perc: 3.08
-  Value: 9, Label: Refused, Freq: 33, Perc: 0.05
-  Value: BLANK, Label: Not asked or Missing
-Notes: Section 07.04, ASTHMA3 is coded 2, 7, 9, or Missing, Freq: 378438, Perc: None
 
 
 Variable: CHCSCNC1
@@ -621,30 +547,6 @@ Categories:
 Notes: Section 08.01, AGE, is less than 45; or Section 11.06, COLNCNCR, is coded 2, 7, 9 or missing;, Freq: 383730, Perc: None
 
 
-Variable: SMOKE100
-Label: Smoked at Least 100 Cigarettes
-Question: Have you smoked at least 100 cigarettes in your entire life? [Note: 5 packs = 100 cigarettes]
-Categories:
-  Value: 1, Label: Yes, Freq: 164217, Perc: 39.73
-  Value: 2, Label: NoGo to Section 12.03 USENOW3, Freq: 245955, Perc: 59.5
-  Value: 7, Label: Dont know/Not SureGo to Section 12.03 USENOW3, Freq: 2297, Perc: 0.56
-  Value: 9, Label: RefusedGo to Section 12.03 USENOW3, Freq: 886, Perc: 0.21
-  Value: BLANK, Label: Not asked or Missing, Freq: 31777, Perc: None
-
-
-Variable: SMOKDAY2
-Label: Frequency of Days Now Smoking
-Question: Do you now smoke cigarettes every day, some days, or not at all?
-Categories:
-  Value: 1, Label: Every day, Freq: 36003, Perc: 21.95
-  Value: 2, Label: Some days, Freq: 13938, Perc: 8.5
-  Value: 3, Label: Not at all, Freq: 113774, Perc: 69.35
-  Value: 7, Label: Dont Know/Not Sure, Freq: 165, Perc: 0.1
-  Value: 9, Label: Refused, Freq: 173, Perc: 0.11
-  Value: BLANK, Label: Not asked or Missing
-Notes: Section 12.01, SMOKE100, is coded 2, 7, 9, or Missing, Freq: 281079, Perc: None
-
-
 Variable: USENOW3
 Label: Use of Smokeless Tobacco Products
 Question: Do you currently use chewing tobacco, snuff, or snus every day, some days, or not at all? (Snus (Swedish for snuff) is a moist smokeless tobacco, usually sold in small pouches that are placed under the lip against the gum.)
@@ -668,41 +570,6 @@ Categories:
   Value: 7, Label: Dont know / Not sure, Freq: 905, Perc: 0.22
   Value: 9, Label: Refused, Freq: 1176, Perc: 0.29
   Value: BLANK, Label: Not asked or Missing, Freq: 33579, Perc: None
-
-
-Variable: LCSFIRST
-Label: How old when you first started smoking?
-Question: How old were you when you first started to smoke cigarettes regularly
-Categories:
-  Value: 1 - 100, Label: Age in Years, Freq: 153326, Perc: 94.81
-  Value: 777, Label: Dont know/Not Sure, Freq: 2877, Perc: 1.78
-  Value: 888, Label: Never smoked cigarettes regularlyGo to Section 13.04 LCSCTSC1, Freq: 4858, Perc: 3.0
-  Value: 999, Label: Refused, Freq: 654, Perc: 0.4
-  Value: BLANK, Label: Not asked or Missing
-Notes: Section 12.01, SMOKE100, is coded 2, 7, 9, or Missing; or Section 12.02, SMOKDAY2, is coded 7, 9, or Missing;, Freq: 283417, Perc: None
-
-
-Variable: LCSLAST
-Label: How old when you last smoked?
-Question: How old were you when you last smoked cigarettes regularly?
-Categories:
-  Value: 1 - 100, Label: Age in Years, Freq: 115158, Perc: 95.47
-  Value: 777, Label: Dont know/Not Sure, Freq: 4619, Perc: 3.83
-  Value: 999, Label: Refused, Freq: 842, Perc: 0.7
-  Value: BLANK, Label: Not asked or Missing
-Notes: Section 12.01, SMOKE100, is coded 2, 7, 9, or Missing; or Section 12.02, SMOKDAY2, is coded 1; or Module 13.01, LCSFIRST, is coded 888 or missing, Freq: 324513, Perc: None
-
-
-Variable: LCSNUMCG
-Label: On average, how many cigarettes do you smoke each day?
-Question: On average, when you {smoke/smoked} regularly, about how many cigarettes {do/did} you usually smoke each day?
-Categories:
-  Value: 0, Label: , Freq: 1, Perc: 0.0
-  Value: 1 - 300, Label: Number of cigarettes, Freq: 150246, Perc: 96.23
-  Value: 777, Label: Dont know/Not Sure, Freq: 5167, Perc: 3.31
-  Value: 999, Label: Refused, Freq: 726, Perc: 0.46
-  Value: BLANK, Label: Not asked or Missing
-Notes: Section 12.01, SMOKE100, is coded 2, 7, 9, or Missing; or Section 12.02, SMOKDAY2, is coded 7, 9, or Missing; or Module 09.01, LCSFIRST, is coded 888 or missing, Freq: 288992, Perc: None
 
 
 Variable: LCSCTSC1
@@ -1123,30 +990,6 @@ Notes: EXERANY2 = 2, Freq: 106480, Perc: 23.92
 Notes: EXERANY2 = 7 or 9 or Missing, Freq: 1093, Perc: 0.25
 
 
-Variable: _LTASTH1
-Label: Lifetime Asthma Calculated Variable
-Question: Adults who have ever been told they have asthma
-Categories:
-  Value: 1, Label: No
-Notes: ASTHMA3 = 2, Freq: 376665, Perc: 84.62
-  Value: 2, Label: Yes
-Notes: ASTHMA3 = 1, Freq: 66694, Perc: 14.98
-  Value: 9, Label: Dont know/Not Sure Or Refused/Missing
-Notes: ASTHMA3 = 7 or 9 or Missing, Freq: 1773, Perc: 0.4
-
-
-Variable: _CASTHM1
-Label: Current Asthma Calculated Variable
-Question: Adults who have been told they currently have asthma
-Categories:
-  Value: 1, Label: No
-Notes: ASTHMA3 = 2 or ASTHMA3 = 1 and ASTHNOW = 2, Freq: 395613, Perc: 88.88
-  Value: 2, Label: Yes
-Notes: ASTHMA3 = 1 and ASTHNOW = 1, Freq: 45659, Perc: 10.26
-  Value: 9, Label: Dont know/Not Sure Or Refused/Missing
-Notes: ASTHMA3 = 7 or 9 or Missing or ASTHNOW = 7 or 9 or Missing, Freq: 3860, Perc: 0.87
-
-
 Variable: _ASTHMS1
 Label: Computed Asthma Status
 Question: Computed asthma status
@@ -1203,22 +1046,6 @@ Notes: 75 <= AGE <= 79, Freq: 32518, Perc: 7.31
 Notes: 80 <= AGE <= 99, Freq: 36251, Perc: 8.14
   Value: 14, Label: Dont know/Refused/Missing
 Notes: 7 <= AGE <= 9, Freq: 9079, Perc: 2.04
-
-
-Variable: _SMOKER3
-Label: Computed Smoking Status
-Question: Four-level smoker status: Everyday smoker, Someday smoker, Former smoker, Non-smoker
-Categories:
-  Value: 1, Label: Current smoker - now smokes every day
-Notes: SMOKE100 = 1 and SMOKEDAY = 1, Freq: 36003, Perc: 8.09
-  Value: 2, Label: Current smoker - now smokes some days
-Notes: SMOKE100 = 1 and SMOKEDAY = 2, Freq: 13938, Perc: 3.13
-  Value: 3, Label: Former smoker
-Notes: SMOKE100 = 1 and SMOKEDAY = 3, Freq: 113774, Perc: 25.56
-  Value: 4, Label: Never smoked
-Notes: SMOKE100 = 2, Freq: 245955, Perc: 55.25
-  Value: 9, Label: Dont know/Refused/Missing
-Notes: SMOKE100 = 1 and SMOKEDAY = 9 or SMOKE100 = 7 or 9 or Missing, Freq: 35462, Perc: 7.97
 
 
 Variable: _CURECI2
@@ -1303,3 +1130,4 @@ Notes: AGE >= 65 and PNEUVAC4 = 2, Freq: 39370, Perc: 23.38
   Value: 9, Label: Dont know/Not Sure Or Refused/Missing
 Notes: AGE = 7 or 9 or Missing or PNEUVAC4 = 7 or 9 or Missing, Freq: 28190, Perc: 16.74
   Value: BLANK, Label: Age < 65
+Notes: AGE < 65, Freq: 276713, Perc: None
