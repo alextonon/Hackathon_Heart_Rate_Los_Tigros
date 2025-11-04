@@ -26,7 +26,6 @@ ENV/
 
 # === Kaggle and data ===
 # Datasets downloaded from Kaggle or elsewhere
-/data/
 */data/
 datasets/
 input/
