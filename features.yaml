@@ -11,4 +11,4 @@ features : ['_STATE', 'GENHLTH', 'PHYSHLTH', 'MENTHLTH', 'POORHLTH', 'PRIMINSR',
             '_PHYS14D', '_MENT14D', '_HLTHPLN', '_HCVU652', '_TOTINDA', '_ASTHMS1',
             '_SEX', '_AGEG5YR', '_CURECI2', '_PACKDAY', '_SMOKGRP', '_LCSREC', 
             '_RFDRHV8', '_FLSHOT7', '_PNEUMO3', 'ID']
-            '_RFDRHV8', '_FLSHOT7', '_PNEUMO3', 'ID', 'TARGET']
+
