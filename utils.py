@@ -399,7 +399,7 @@ def data_processing_test(df, feature_info, scaler) :
 
     X = X.set_index('ID')
 
-    X[continuous_columns] = scaler.fit_transform(X[continuous_columns])
+    X[continuous_columns] = scaler.transform(X[continuous_columns])
 
 
     X = X[feature_info]
