@@ -317,8 +317,7 @@ def data_processing_test(df, feature_info, scaler) :
 
     
 
-    X = df.drop(columns='TARGET')    
-    y = df['TARGET'].astype(int)
+    X = df 
 
 
     X = X[config['features']].copy()
