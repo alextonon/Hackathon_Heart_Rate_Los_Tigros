@@ -39,6 +39,8 @@ input/
 *.npy
 *.npz
 *.XPT
+*.xpt
+data/LLCP2024.XPT
 
 # === Build artifacts ===
 build/
