@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import altair as alt
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -7,7 +8,13 @@ import matplotlib.cm as cm
 import matplotlib.colors as mcolors
 import matplotlib.font_manager as fm
 import plotly.express as px
+import xgboost as xgb
 from sklearn.model_selection import train_test_split
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_selection import mutual_info_classif
+from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
 
 # CONFIGURATION STREAMLIT
 st.set_page_config(page_title="Hackathon Los Tigros 🐅", layout="wide")
@@ -94,9 +101,9 @@ sex_mapping = {1: "Male",2: "Female"}
 
 # CHARGEMENT DES DONNEES
 @st.cache_data
-def load_data(file_path, n_samples=20000):
+def load_data(n_samples=20000):
     # Charger le CSV
-    df = pd.read_csv(file_path, usecols=columns_to_keep)
+    df = pd.read_csv("data/train.csv", usecols=columns_to_keep)
     
     # Appliquer un échantillonnage stratifié si nécessaire
     if len(df) > n_samples:
@@ -104,28 +111,34 @@ def load_data(file_path, n_samples=20000):
         strata_cols = ['_SEX', '_AGEG5YR', 'TARGET']
         
         # Supprimer les lignes avec valeurs manquantes sur ces colonnes
-        df_strata = df.dropna(subset=strata_cols)
+        df = df.dropna(subset=strata_cols)
         
         # Fraction à échantillonner
-        frac = n_samples / len(df_strata)
+        frac = n_samples / len(df)
         
         # Échantillonnage stratifié
-        df_sample, _ = train_test_split(
-            df_strata,
+        df, _ = train_test_split(
+            df,
             test_size=1-frac,
-            stratify=df_strata[strata_cols],
+            stratify=df[strata_cols],
             random_state=42
         )
-        return df_sample
     
-    return df
+    X_train = pd.read_csv('data/X_train_final.csv')
+    X_test = pd.read_csv('data/X_test_final.csv')
+    y_train = pd.read_csv('data/y_train.csv')
+    y_train = y_train['TARGET']
 
-file_path = "data/train.csv"
-df = load_data(file_path)
+    return df, X_train, X_test, y_train
+
+
+df, X_train, X_test, y_train = load_data()
 df.columns = names_columns
 df['State'] = df['State'].apply(lambda x: state_mapping.get(int(x)) if pd.notna(x) else None)
 df['Sex'] = df['Sex'].apply(lambda x: sex_mapping.get(int(x)) if pd.notna(x) else None)
 st.write(f"Dataset chargé : {len(df)} lignes")
+st.write(np.shape(X_train))
+st.write(np.shape(X_test))
 
 # CHARTE GRAPHIQUE
 cmap = cm.get_cmap("YlOrRd")  # colormap
@@ -178,15 +191,16 @@ with col1:
         st.session_state.page = "social"
 
 with col3:
-    bouton_correlations = st.button("Problèmes de santé")
-    if bouton_correlations :
-        st.session_state.page = "correlations"
+    bouton_sante = st.button("Problèmes de santé")
+    if bouton_sante :
+        st.session_state.page = "sante"
     bouton_predictions = st.button("Prédictions")
     if bouton_predictions :
         st.session_state.page = "predictions"
     bouton_surprise = st.button("Surprise")
     if bouton_surprise :
         st.session_state.page = "surprise"
+
 
 # Valeur par défaut au premier chargement
 if "page" not in st.session_state:
@@ -312,6 +326,30 @@ if st.session_state.page == "general" :
 
         st.subheader("Répartition des individus par tranche d'âge")
         st.altair_chart(age_bar)
+
+
+    nan_proportion = df_filtered.isna().sum().sort_values(ascending=False) / len(df_filtered)
+    norm = mcolors.Normalize(vmin=nan_proportion.min(), vmax=nan_proportion.max())
+
+    # Générer la couleur de chaque barre selon la valeur
+    colors = [cmap(norm(v)) for v in nan_proportion.values]
+
+    # Plot
+    fig, ax = plt.subplots(figsize=(7, 3))
+    bars = ax.bar(nan_proportion.index, nan_proportion.values, color=colors)
+
+    plt.xticks(rotation=90,fontsize=4)
+    plt.ylabel("Proportion de NaN")
+    plt.title("Proportion de valeurs manquantes par colonne")
+    plt.grid(axis="y", linestyle="--", alpha=0.7)
+    plt.tight_layout()
+
+    # Ajouter une colorbar pour la lisibilité
+    sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
+    sm.set_array([])
+    fig.colorbar(sm, ax=ax)
+
+    st.pyplot(fig)
 
 
 if st.session_state.page == "habitudes" :
@@ -453,6 +491,69 @@ if st.session_state.page == "social" :
             else:
                 st.write("Pas assez de variables numériques pour calculer une corrélation.")
 
+
+if st.session_state.page == "predictions" :
+
+    top_vars = ['General health','Age category','Heavy drinker','Smoking group','Sleep Time']
+
+    # Préparer les données
+    df_pca = df_filtered[top_vars + ['Heart Attack']].dropna()
+    if len(df_pca) > 2000:
+        df_pca = df_pca.sample(2000, random_state=42)
+
+    X_scaled = StandardScaler().fit_transform(df_pca[top_vars])
+
+    pca = PCA(n_components=2)
+    X_pca = pca.fit_transform(X_scaled)
+
+    df_plot = pd.DataFrame(X_pca, columns=['PC1', 'PC2'])
+    df_plot['Heart Attack'] = df_pca['Heart Attack'].values
+
+    # Plot
+    fig, ax = plt.subplots(figsize=(8, 6))
+    colors = {0: '#1f77b4', 1: '#d9534f'}
+    for ha in df_plot['Heart Attack'].unique():
+        subset = df_plot[df_plot['Heart Attack'] == ha]
+        ax.scatter(subset['PC1'], subset['PC2'],
+                   label=f'Heart Attack={ha}', alpha=0.6, c=colors[ha])
+
+    # Flèches des variables
+    for i, var in enumerate(top_vars):
+        ax.arrow(0, 0,
+                 pca.components_[0, i] * 3,
+                 pca.components_[1, i] * 3,
+                 color='black', alpha=0.7, head_width=0.1)
+        ax.text(pca.components_[0, i] * 3.2,
+                pca.components_[1, i] * 3.2,
+                var, fontsize=9)
+
+    ax.axhline(0, color='grey')
+    ax.axvline(0, color='grey')
+    ax.set_xlabel("PC1")
+    ax.set_ylabel("PC2")
+    ax.set_title("ACP sur les variables les plus informatives (Mutual Information)")
+    ax.legend()
+    st.pyplot(fig)
+
+
+    dtrain = xgb.DMatrix(data=X_train, label=y_train)
+    dtest = xgb.DMatrix(data=X_test)
+
+    params = {
+        'learning_rate': 0.11238179249467785,
+        'max_depth': 8,
+        'min_child_weight': 47,
+        'num_boost_round': 128,
+        'objective': 'binary:logistic',
+        'seed': 42
+    }
+
+    model_xgb = xgb.train(params, dtrain, num_boost_round=100)
+
+    predictions_test = model_xgb.predict(dtest)
+    y_pred = (predictions_test > 0.18).astype(int)
+
+    st.dataframe(y_pred[:5])
 
 if st.session_state.page == "surprise" :
 
