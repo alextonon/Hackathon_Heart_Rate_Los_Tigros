@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import yaml
 from sklearn.preprocessing import StandardScaler
 from sklearn.feature_selection import mutual_info_classif
+from xgboost import XGBClassifier
 
 
 class HTMLParser():
@@ -278,27 +279,47 @@ def data_processing_train(df) :
 
     X[continuous_columns] = scaler.fit_transform(X[continuous_columns])
 
-    mi = mutual_info_classif(X, y, discrete_features='auto', random_state=42)
-    mi_series = pd.Series(mi, index=X.columns).sort_values(ascending=False)
+    # mi = mutual_info_classif(X, y, discrete_features='auto', random_state=42)
+    # mi_series = pd.Series(mi, index=X.columns).sort_values(ascending=False)
 
-    plt.figure(figsize=(12,6))
-    mi_series.plot(kind='bar')
-    plt.ylabel('Mutual Information')
-    plt.title('Importance des features par rapport au label')
-    plt.show()
+    # plt.figure(figsize=(12,6))
+    # mi_series.plot(kind='bar')
+    # plt.ylabel('Mutual Information')
+    # plt.title('Importance des features par rapport au label')
+    # plt.show()
 
-    mi_cumsum = mi_series.cumsum()
-    mi_total = mi_series.sum()
+    # mi_cumsum = mi_series.cumsum()
+    # mi_total = mi_series.sum()
 
-    threshold = 0.99 * mi_total
-    features_99 = mi_cumsum[mi_cumsum <= threshold].index.tolist()
+    # threshold = 0.99 * mi_total
+    # features_99 = mi_cumsum[mi_cumsum <= threshold].index.tolist()
 
-    print("Nombre de features conservées :", len(features_99))
-    print("Features conservées :", features_99)
+    # print("Nombre de features conservées :", len(features_99))
+    # print("Features conservées :", features_99)
 
-    X = X[features_99]
+    # X = X[features_99]
 
- 
+#############################################################################""
+
+    # xgb =  XGBClassifier(n_estimators=51)
+
+    # xgb.fit(X, y)
+
+    # importances = xgb.feature_importances_
+    # indices = np.argsort(importances)[::-1]
+
+    # mi_cumsum = importances[indices].cumsum()
+    # mi_total = importances[indices].sum()
+
+    # threshold = 0.99 * mi_total
+    # indice = indices[mi_cumsum <= threshold]
+
+    # features_99 = X.columns[indice]
+
+    # X = X[features_99]
+
+    features_99 = 0
+
     y = df['TARGET']
 
     return X, y, features_99, scaler
@@ -402,7 +423,7 @@ def data_processing_test(df, feature_info, scaler) :
     X[continuous_columns] = scaler.transform(X[continuous_columns])
 
 
-    X = X[feature_info]
+    # X = X[feature_info]
 
     return X
     
