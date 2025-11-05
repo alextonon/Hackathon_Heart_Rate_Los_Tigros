@@ -179,7 +179,6 @@ def feature_classification_from_codebook(codebook: list, features: list) -> dict
 
 
 def data_processing_train(df) :
-
     parser = HTMLParser()
     html_snippet = "data/USCODE22_LLCP_102523.HTML"
 
@@ -208,10 +207,6 @@ def data_processing_train(df) :
             categories.sort()
             if categories[0] != str(1):
                 features_classification[feature] = 'numerical'
-
-                print(f"Feature: {feature}")
-                print(categories)
-
             else:
                 features_classification[feature] = 'categorical'
         else:
@@ -336,7 +331,6 @@ def data_processing_test(df, feature_info, scaler) :
     with open(config, 'r') as file:
         config = yaml.load(file, Loader=yaml.FullLoader)
 
-    
 
     X = df 
 
@@ -353,9 +347,6 @@ def data_processing_test(df, feature_info, scaler) :
             categories.sort()
             if categories[0] != str(1):
                 features_classification[feature] = 'numerical'
-
-                print(f"Feature: {feature}")
-                print(categories)
 
             else:
                 features_classification[feature] = 'categorical'
