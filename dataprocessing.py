@@ -37,13 +37,19 @@ def _clean_and_engineer(X, features_classification):
                           'MARIJAN1','ALCDAY4','AVEDRNK3','DRNK3GE5',
                           'MAXDRNKS','COPDSMOK','_PACKDAY']
     
+    continuous_columns = [c for c in continuous_columns if c in X.columns]
+    
     # Imputations/recodes spécifiques
     X["_PACKDAY"] = X["_PACKDAY"].fillna(X["_PACKDAY"].median())
 
-    X["COPDSMOK"] = X["COPDSMOK"].replace({88:0, 77:np.nan, 99:np.nan}).fillna(X["COPDSMOK"].median())
+    if "COPDSMOK" in X.columns:
+        X["COPDSMOK"] = X["COPDSMOK"].replace({88:0, 77:np.nan, 99:np.nan}).fillna(X["COPDSMOK"].median())
+        continuous_columns.remove("COPDSMOK")
     X["MAXDRNKS"] = X["MAXDRNKS"].replace({77:np.nan, 99:np.nan}).fillna(X["MAXDRNKS"].median())
     X["DRNK3GE5"] = X["DRNK3GE5"].replace({88:0, 77:np.nan, 99:np.nan}).fillna(X["DRNK3GE5"].median())
-    X["AVEDRNK3"] = X["AVEDRNK3"].replace({88:0, 77:np.nan, 99:np.nan}).fillna(X["AVEDRNK3"].median())
+    if "AVEDRNK3" in X.columns:
+        X["AVEDRNK3"] = X["AVEDRNK3"].replace({88:0, 77:np.nan, 99:np.nan}).fillna(X["AVEDRNK3"].median())
+        continuous_columns.remove("AVEDRNK3")
     X["MARIJAN1"] = X["MARIJAN1"].replace({88:0, 77:np.nan, 99:np.nan}).fillna(X["MARIJAN1"].median())
 
     # ALCDAY4: semaines/mois -> jours
@@ -53,7 +59,9 @@ def _clean_and_engineer(X, features_classification):
     X.loc[mask_alc_month, "ALCDAY4"] = (X.loc[mask_alc_month, "ALCDAY4"] % 200)
     X["ALCDAY4"] = X["ALCDAY4"].replace({888:0, 777:np.nan, 999:np.nan}).fillna(X["ALCDAY4"].median())
 
-    X["SLEPTIM1"] = X["SLEPTIM1"].replace({77:np.nan, 99:np.nan}).fillna(X["SLEPTIM1"].median())
+    if "SLEPTIM1" in X.columns:
+        X["SLEPTIM1"] = X["SLEPTIM1"].replace({77:np.nan, 99:np.nan}).fillna(X["SLEPTIM1"].median())
+        continuous_columns.remove("SLEPTIM1")
     X["POORHLTH"] = X["POORHLTH"].replace({88:0, 77:np.nan, 99:np.nan}).fillna(X["POORHLTH"].median())
     X["MENTHLTH"] = X["MENTHLTH"].replace({88:0, 77:np.nan, 99:np.nan}).fillna(X["MENTHLTH"].median())
     X["PHYSHLTH"] = X["PHYSHLTH"].replace({88:0, 77:np.nan, 99:np.nan}).fillna(X["PHYSHLTH"].median())
@@ -76,6 +84,10 @@ def _clean_and_engineer(X, features_classification):
 
     # Catégorielles -> codes
     categorical_features = [f for f, kind in features_classification.items() if kind == 'categorical']
+    existing_cols = set(X.columns)
+    categorical_features = [c for c in categorical_features if c in existing_cols]
+
+            
     if categorical_features:
         X[categorical_features] = X[categorical_features].fillna(-1)
         X[categorical_features] = X[categorical_features].astype('category').apply(lambda s: s.cat.codes)
