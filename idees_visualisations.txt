@@ -25,3 +25,10 @@ Activité physique, alcool, cannabis, ...
 8 - ACP sur certaines variables
 Et plot de la target en couleur ?
 
+
+Catégories :
+
+- HABITUDES DE VIE (Poids, Alcool, Tabac, Sport)
+- PROBLEMES DE SANTE (Cancer, Diabète, COVID, )
+- SOCIAL (Accès à Health Insurance, Veteran, )
+- MODELE
