@@ -123,22 +123,15 @@ def load_data(n_samples=20000):
             stratify=df[strata_cols],
             random_state=42
         )
-    
-    X_train = pd.read_csv('data/X_train_final.csv')
-    X_test = pd.read_csv('data/X_test_final.csv')
-    y_train = pd.read_csv('data/y_train.csv')
-    y_train = y_train['TARGET']
 
-    return df, X_train, X_test, y_train
+    return df
 
 
-df, X_train, X_test, y_train = load_data()
+df = load_data()
 df.columns = names_columns
 df['State'] = df['State'].apply(lambda x: state_mapping.get(int(x)) if pd.notna(x) else None)
 df['Sex'] = df['Sex'].apply(lambda x: sex_mapping.get(int(x)) if pd.notna(x) else None)
 st.write(f"Dataset chargé : {len(df)} lignes")
-st.write(np.shape(X_train))
-st.write(np.shape(X_test))
 
 # CHARTE GRAPHIQUE
 cmap = cm.get_cmap("YlOrRd")  # colormap
@@ -535,25 +528,6 @@ if st.session_state.page == "predictions" :
     ax.legend()
     st.pyplot(fig)
 
-
-    dtrain = xgb.DMatrix(data=X_train, label=y_train)
-    dtest = xgb.DMatrix(data=X_test)
-
-    params = {
-        'learning_rate': 0.11238179249467785,
-        'max_depth': 8,
-        'min_child_weight': 47,
-        'num_boost_round': 128,
-        'objective': 'binary:logistic',
-        'seed': 42
-    }
-
-    model_xgb = xgb.train(params, dtrain, num_boost_round=100)
-
-    predictions_test = model_xgb.predict(dtest)
-    y_pred = (predictions_test > 0.18).astype(int)
-
-    st.dataframe(y_pred[:5])
 
 if st.session_state.page == "surprise" :
 
